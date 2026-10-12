@@ -32,6 +32,13 @@ that you list what you have and choose who sees it.
 - No em dashes. No "Turn your network into deals" H1. No "Not another marketplace" headline. Never call ListLabs "a page".
   No named example people. No compliance or AI features.
 
+## Pages
+
+Home, three audience pages (`/for/...`), About and Blog, each in both versions. All render inside
+`site/src/components/site/SiteShell.tsx`. Internal links are plain `<a>` with the version prefix from
+`basePath()`; do not use next/link for page changes (Lenis and the version switch rely on full loads).
+Dynamic routes read params inside `<Suspense>` (Cache Components requirement).
+
 ## Two versions
 
 `/` is Version A (rounded, plum, arrow buttons). `/b` is Version B (client's original colours, tighter corners,

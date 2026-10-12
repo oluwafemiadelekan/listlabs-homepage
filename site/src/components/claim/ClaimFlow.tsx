@@ -36,7 +36,8 @@ import { EASE_OUT_EXPO } from "@/lib/motion";
 /* Context: any claim button or form on the page opens the overlay.     */
 /* ------------------------------------------------------------------ */
 
-type OpenArgs = { handle?: string; draft?: string };
+/** draft: an "I'm listing" start to keep. search: a saved search to start watching once the handle exists. */
+type OpenArgs = { handle?: string; draft?: string; search?: string };
 type ClaimCtx = { open: (args?: OpenArgs) => void };
 
 const Ctx = createContext<ClaimCtx>({ open: () => {} });
@@ -50,7 +51,7 @@ export function ClaimProvider({ children }: { children: ReactNode }) {
   return (
     <Ctx.Provider value={value}>
       <div id="page-root">{children}</div>
-      <AnimatePresence>{state && <ClaimOverlay key={state.key} initialHandle={state.handle} draft={state.draft} onClose={close} />}</AnimatePresence>
+      <AnimatePresence>{state && <ClaimOverlay key={state.key} initialHandle={state.handle} draft={state.draft} search={state.search} onClose={close} />}</AnimatePresence>
     </Ctx.Provider>
   );
 }
@@ -106,7 +107,7 @@ const ASSETS = [
   { key: "collectibles", label: "Collectibles", Icon: Diamond },
 ];
 
-function ClaimOverlay({ initialHandle = "", draft, onClose }: { initialHandle?: string; draft?: string; onClose: () => void }) {
+function ClaimOverlay({ initialHandle = "", draft, search, onClose }: { initialHandle?: string; draft?: string; search?: string; onClose: () => void }) {
   const lenis = useLenis();
   const panel = useRef<HTMLDivElement>(null);
   const stepRef = useRef<HTMLDivElement>(null);
@@ -240,10 +241,12 @@ function ClaimOverlay({ initialHandle = "", draft, onClose }: { initialHandle?: 
                   }}
                   noValidate
                 >
-                  {draft && (
+                  {(draft || search) && (
                     <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-chip bg-paper px-3.5 py-1.5 text-[13px] text-ink-soft shadow-[inset_0_0_0_1px_var(--line)]">
                       <span className="h-1.5 w-1.5 shrink-0 rounded-pill bg-violet" />
-                      <span className="truncate">Your draft: &ldquo;{draft}&rdquo;. Claim a handle to keep it.</span>
+                      <span className="truncate">
+                        {draft ? <>Your draft: &ldquo;{draft}&rdquo;. Claim a handle to keep it.</> : <>Watching for &ldquo;{search}&rdquo;. Claim a handle to turn it on.</>}
+                      </span>
                     </p>
                   )}
                   <h2 id="claim-title" className="t-h1">Claim your handle</h2>
@@ -429,15 +432,19 @@ function ClaimOverlay({ initialHandle = "", draft, onClose }: { initialHandle?: 
                   <p className="t-body mt-3 max-w-[44ch] text-ink-soft">
                     {draft
                       ? "Your draft listing is saved to your handle. Finish it, then decide who sees it."
-                      : "List what you have and decide who sees it, or set a saved search that watches for what you want."}
+                      : search
+                        ? `Your saved search is on. It watches for “${search}” and you hear about it when it shows up in your world.`
+                        : "List what you have and decide who sees it, or set a saved search that watches for what you want."}
                   </p>
                   <div className="mt-8 flex flex-wrap items-center gap-3">
                     <Button size="lg" arrow onClick={onClose} data-autofocus>
                       {draft ? "Finish your listing" : "Start a listing"}
                     </Button>
-                    <Button size="lg" variant="secondary" onClick={onClose}>
-                      Set a saved search
-                    </Button>
+                    {!search && (
+                      <Button size="lg" variant="secondary" onClick={onClose}>
+                        Set a saved search
+                      </Button>
+                    )}
                   </div>
                 </div>
               )}

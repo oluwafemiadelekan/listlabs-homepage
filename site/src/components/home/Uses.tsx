@@ -8,6 +8,7 @@ const USES = [
     option: "Shared",
     Icon: UsersThree,
     audience: "Collectibles",
+    slug: "collectibles",
   },
   {
     title: "Instead of a public auction",
@@ -15,6 +16,7 @@ const USES = [
     option: "Unlisted",
     Icon: LinkSimple,
     audience: "Classic cars",
+    slug: "classic-cars",
   },
   {
     title: "Instead of a teaser you can't take back",
@@ -22,6 +24,7 @@ const USES = [
     option: "Unlisted",
     Icon: LinkSimple,
     audience: "Business brokers",
+    slug: "business-brokers",
   },
 ];
 
@@ -30,7 +33,7 @@ const USES = [
  * Every tile sits 4px from its neighbours so the corners read as one cut-up shape.
  * Only the three use tiles are links (to their audience pages); nothing else pretends to be.
  */
-export function Uses() {
+export function Uses({ base = "" }: { base?: string }) {
   return (
     <section id="uses" className="section-gap scroll-mt-6">
       <div className="container">
@@ -43,7 +46,7 @@ export function Uses() {
             {USES.map((u) => (
               <RevealItem key={u.title} className="flex">
                 <a
-                  href="#uses"
+                  href={`${base}/for/${u.slug}`}
                   aria-label={`${u.title}. For ${u.audience}`}
                   className="group/use flex w-full flex-col rounded-card bg-plum p-5 text-paper transition-colors duration-[420ms] ease-out hover:bg-plum-deep"
                 >

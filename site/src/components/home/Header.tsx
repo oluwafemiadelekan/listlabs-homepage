@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { List, X } from "@phosphor-icons/react";
 import { Logo } from "@/components/brand/Logo";
@@ -9,34 +9,52 @@ import { Button } from "@/components/ui/Button";
 import { BRAND } from "@/lib/brand";
 import { useClaim } from "@/components/claim/ClaimFlow";
 import { EASE_OUT_EXPO } from "@/lib/motion";
+import { basePath, variantFromPath } from "@/lib/site";
 
-export const NAV_LINKS = [
-  { label: "How it works", href: "#how" },
-  { label: "Who it's for", href: "#uses" },
-  { label: "About", href: "#about" },
-  { label: "Blog", href: "#blog" },
-] as const;
+/**
+ * Nav links for the current page. On the homepage the first two scroll in place (through Lenis);
+ * elsewhere they go back to the homepage section. Plain links throughout, so every page change is
+ * a clean load and the version prefix (/b) is kept.
+ */
+function useNavLinks() {
+  const path = usePathname() || "/";
+  const base = basePath(variantFromPath(path));
+  const isHome = path === "/" || path === "/b";
+  const home = base || "/";
+  return {
+    home,
+    path,
+    links: [
+      { label: "How it works", href: isHome ? "#how" : `${home === "/" ? "" : home}/#how` },
+      { label: "Who it's for", href: isHome ? "#uses" : `${home === "/" ? "" : home}/#uses` },
+      { label: "About", href: `${base}/about` },
+      { label: "Blog", href: `${base}/blog` },
+    ],
+  };
+}
 
 /** Logo left; small links and the one account button right. As quiet as the reference. */
 export function Header() {
   const [open, setOpen] = useState(false);
   const claim = useClaim();
+  const { home, path, links } = useNavLinks();
   return (
     <header className="relative z-30">
       <div className="container flex h-20 items-center justify-between gap-6">
-        <Link href="/" aria-label={`${BRAND.name} home`} className="rounded-pill">
+        <a href={home} aria-label={`${BRAND.name} home`} className="rounded-pill">
           <Logo size={20} />
-        </Link>
+        </a>
         <div className="flex items-center gap-4 md:gap-7">
           <nav aria-label="Main" className="hidden items-center gap-7 md:flex">
-            {NAV_LINKS.map((l) => (
+            {links.map((l) => (
               <a
-                key={l.href}
+                key={l.label}
                 href={l.href}
-                className="group/nav relative text-[14px] text-ink-soft transition-colors duration-[240ms] ease-out hover:text-ink"
+                aria-current={path.endsWith(l.href) || (l.href.length > 3 && path.startsWith(l.href)) ? "page" : undefined}
+                className="group/nav relative text-[14px] text-ink-soft transition-colors duration-[240ms] ease-out hover:text-ink aria-[current=page]:text-ink"
               >
                 {l.label}
-                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-ink transition-transform duration-[420ms] ease-[var(--ease-out-expo)] group-hover/nav:scale-x-100" />
+                <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-ink transition-transform duration-[420ms] ease-[var(--ease-out-expo)] group-hover/nav:scale-x-100 group-aria-[current=page]/nav:scale-x-100" />
               </a>
             ))}
           </nav>
@@ -69,8 +87,8 @@ export function Header() {
             className="container md:hidden"
           >
             <ul className="m-0 flex list-none flex-col gap-1 rounded-card bg-paper p-2 shadow-float">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
+              {links.map((l) => (
+                <li key={l.label}>
                   <a href={l.href} onClick={() => setOpen(false)} className="block rounded-inner px-4 py-3 text-[16px] transition-colors duration-[200ms] hover:bg-sand">
                     {l.label}
                   </a>

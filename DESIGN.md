@@ -92,6 +92,20 @@ components:
 
 # ListLabs homepage design system
 
+## Pages
+
+| Page | Version A | Version B | What it is |
+| --- | --- | --- | --- |
+| Home | `/` | `/b` | The homepage |
+| Audience | `/for/collectibles`, `/for/classic-cars`, `/for/business-brokers` | same under `/b` | A collection of listings for one audience: client use-card copy, category, visibility and sort filters, listing cards that open details, a "N more" tile for listings a visitor cannot see, and a saved-search block |
+| About | `/about` | `/b/about` | Built entirely from the client's brand-guide foundation copy |
+| Blog | `/blog`, `/blog/[slug]` | same under `/b` | Featured post plus grid; article pages with "More from the blog" |
+
+Every page uses `SiteShell` (version wrapper, claim flow, header, closing card and footer). Header links keep the
+version prefix. Audience pages only show Public and Listed listings, because Shared, Unlisted and Private are never
+shown to strangers; the "N more" tile says so. Listing data: `site/src/lib/catalog.ts`. Posts: `site/src/lib/blog.ts`.
+Audience copy: `site/src/lib/site.ts`. Everything except the client's use-card and brand-guide lines is placeholder copy.
+
 ## Two versions
 
 The same page ships in two versions for review. Layout, content and motion are identical; only tokens differ.

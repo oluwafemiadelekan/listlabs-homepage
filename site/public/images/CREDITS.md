@@ -17,3 +17,18 @@
 - marina.jpg: "white and blue boats on dock during daytime", Unsplash (Unsplash License), https://unsplash.com/photos/white-and-blue-boats-on-dock-during-daytime-_hXND1Cz_uA
 - phone.jpg: "person holding phone", Unsplash (Unsplash License), https://unsplash.com/photos/person-holding-phone-sB2hUtvU_Mc
 - fair.jpg: "Busy exhibition hall with many booths and attendees", Unsplash (Unsplash License), https://unsplash.com/photos/busy-exhibition-hall-with-many-booths-and-attendees-KVvEpFVq_-U
+- coins.jpg: "silver and gold round coins", Unsplash (Unsplash License), https://unsplash.com/photos/silver-and-gold-round-coins-KlAQ54k2ZoU
+- comics.jpg: "a pile of comics sitting next to each other", Unsplash (Unsplash License), https://unsplash.com/photos/a-pile-of-comics-sitting-next-to-each-other-8SeJUmfahu0
+- pens.jpg: "three pens sitting on top of a white box", Unsplash (Unsplash License), https://unsplash.com/photos/three-pens-sitting-on-top-of-a-white-box-Vm8SVwvIo4c
+- porsche.jpg: "red coupe on gray asphalt road", Unsplash (Unsplash License), https://unsplash.com/photos/red-coupe-on-gray-asphalt-road-H9mp1P1VUj4
+- mercedes.jpg: "a black car parked on a brick road", Unsplash (Unsplash License), https://unsplash.com/photos/a-black-car-parked-on-a-brick-road-Zp03uRz72yw
+- landcruiser.jpg: "Vintage cream toyota land cruiser parked outside brick building", Unsplash (Unsplash License), https://unsplash.com/photos/vintage-cream-toyota-land-cruiser-parked-outside-brick-building-ixI4ZFqCfKM
+- corvette.jpg: "yellow porsche 911 parked near white concrete building", Unsplash (Unsplash License), https://unsplash.com/photos/yellow-porsche-911-parked-near-white-concrete-building-CW_K7JUhvaI
+- jaguar.jpg: "a car on a road", Unsplash (Unsplash License), https://unsplash.com/photos/a-car-on-a-road-DkKlMhV7ftA
+- machineshop.jpg: "Industrial workshop with machinery and fans", Unsplash (Unsplash License), https://unsplash.com/photos/industrial-workshop-with-machinery-and-fans-MkkKNtS8fYQ
+- landscaping.jpg: "man in red and yellow jacket standing beside yellow and black excavator", Unsplash (Unsplash License), https://unsplash.com/photos/man-in-red-and-yellow-jacket-standing-beside-yellow-and-black-excavator-WZGS7ReNrOI
+- dental.jpg: "a hospital room with medical equipment in it", Unsplash (Unsplash License), https://unsplash.com/photos/a-hospital-room-with-medical-equipment-in-it-yJsMOVwazRU
+- cafe.jpg: "A counter with a clock and a counter top", Unsplash (Unsplash License), https://unsplash.com/photos/a-counter-with-a-clock-and-a-counter-top-AWI2m3xaiEw
+- handshake.jpg: "Business partners shake hands, making a deal", Unsplash (Unsplash License), https://unsplash.com/photos/business-partners-shake-hands-making-a-deal-6-iunIrJtbQ
+- meeting.jpg: "a couple of men shaking hands over a desk", Unsplash (Unsplash License), https://unsplash.com/photos/a-couple-of-men-shaking-hands-over-a-desk-MA4aW8ZOzLM
+- diner.jpg: "Two people eating at a restaurant table", Unsplash (Unsplash License), https://unsplash.com/photos/two-people-eating-at-a-restaurant-table-XOYwp264vGk

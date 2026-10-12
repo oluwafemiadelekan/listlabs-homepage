@@ -15,18 +15,8 @@ import { EASE_OUT_EXPO } from "@/lib/motion";
 
 const ICONS = { private: LockSimple, unlisted: LinkSimple, shared: UsersThree, listed: ListMagnifyingGlass, public: Globe };
 
-type Example = {
-  asset: string;
-  price: string;
-  title: string;
-  location: string;
-  image: string;
-  alt: string;
-  position?: string;
-  stats?: [string, string][];
-  about?: string;
-  visibility: VisibilityKey;
-};
+import type { Example } from "@/lib/catalog";
+export type { Example };
 
 /*
   Example listings, taken from the client's own product screens (and the brand guide's Mustang),
@@ -86,7 +76,7 @@ const EXAMPLES: Example[] = [
 
 /* ---------- Card: the whole card is a button that opens the details ---------- */
 
-function ListingCard({ l, onOpen }: { l: Example; onOpen: () => void }) {
+export function ListingCard({ l, onOpen }: { l: Example; onOpen: () => void }) {
   const v = VISIBILITY.find((x) => x.key === l.visibility)!;
   const Icon = ICONS[l.visibility];
   return (
@@ -148,7 +138,7 @@ function ListingCard({ l, onOpen }: { l: Example; onOpen: () => void }) {
 
 /* ---------- Details overlay ---------- */
 
-function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
+export function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
   const lenis = useLenis();
   const claim = useClaim();
   const [level, setLevel] = useState<VisibilityKey>(l.visibility);

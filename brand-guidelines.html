@@ -228,7 +228,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
   <div class="intro">
     <div>
       <h1>Brand guidelines.<br>The system as built.</h1>
-      <span class="version"><span class="mono">v3.2</span> · October 2026 · Supersedes the client guide for the homepage</span>
+      <span class="version"><span class="mono">v3.3</span> · October 2026 · Supersedes the client guide for the homepage</span>
     </div>
     <p>This guide documents the homepage exactly as it ships in <code>site/</code>. The client's original guide is kept for reference at <code>reference/client-brand-guidelines-original.html</code>. Where the two disagree on visuals, this one wins. Voice and copy rules still come from the client.</p>
   </div>
@@ -414,6 +414,27 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
     </div>
     <p style="font-size:13px;color:var(--muted);margin-top:10px">White pill holding the field and its button. Focus draws a violet line and a soft violet ring. Under 560px the button drops below the field.</p>
 
+    <p class="sub">Listing card</p>
+    <div class="tiles cols-4">
+      <article style="display:flex;flex-direction:column;gap:4px">
+        <div style="position:relative;aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden;background:var(--plum)"><img src="site/public/images/apartment.jpg" alt="A mid-century apartment block with rows of balconies" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%"><span style="position:absolute;left:12px;top:12px;background:#fff;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:500">Real estate</span></div>
+        <div class="tile t-white" style="padding:20px">
+          <div style="font-size:24px;font-weight:500;letter-spacing:-0.03em;line-height:1">$2.4M</div>
+          <p style="font-size:14px;color:var(--ink-soft);margin-top:8px">Riverbend, 24-unit multifamily, value-add</p>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px">Austin, TX</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:14px"><div style="background:var(--page);border-radius:14px;padding:10px 12px"><div style="font-size:12px;color:var(--muted)">Cap rate</div><div style="font-weight:500">6.8%</div></div><div style="background:var(--page);border-radius:14px;padding:10px 12px"><div style="font-size:12px;color:var(--muted)">NOI</div><div style="font-weight:500">$0.2M</div></div></div>
+          <p style="font-size:13px;margin-top:14px"><span style="color:var(--violet)">&#9679;</span> <b style="font-weight:500">Shared.</b> <span style="color:var(--ink-soft)">Members that follow you.</span></p>
+        </div>
+      </article>
+      <div class="tile t-lav" style="grid-column:span 3"><h4 style="font-weight:500">Anatomy</h4><ul><li>Photo block with an asset-type pill (Real estate, Business, Securities, Equipment, Vehicles, Collectibles).</li><li>White block 4px below: price, title, location, up to two stats in page-grey cells.</li><li>The visibility level it uses, last, with a violet icon. This is what makes the card ours.</li><li>No lister names on the homepage: the brief bans named example people.</li><li>Examples come from the client's own product screens and brand guide.</li></ul></div>
+    </div>
+
+    <p class="sub">Feature tile</p>
+    <div class="tiles cols-3">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:4px"><div style="position:relative;aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden"><img src="site/public/images/guitar.jpg" alt="Two vintage guitars hanging on a wall" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><figcaption class="tile t-white" style="padding:20px"><h3>Public profiles</h3><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Your handle is how people find you.</p></figcaption></figure>
+      <div class="tile t-lav" style="grid-column:span 2"><h4 style="font-weight:500">Rule</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">The photo holds the place of the product clip. The words sit in their own white block below it, 4px apart. No overlay, no fade, no play button.</p></div>
+    </div>
+
     <p class="sub">Statement with highlight</p>
     <div class="stage" style="background:var(--page);box-shadow:inset 0 0 0 1px var(--line)">
       <p class="statement">You get a listing, and <span class="hl"><svg width="0.8em" height="0.8em" style="color:var(--violet)"><use href="#eye"/></svg>you choose who sees it.</span> Looking is a saved search <span class="dotmark"><svg width="0.6em" height="0.6em"><use href="#bino"/></svg></span> that watches.</p>
@@ -456,7 +477,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
     <div class="tiles cols-3" style="margin-top:4px">
       <div class="tile t-lav"><h4 style="font-weight:500">The grid</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">14 units wide, 2 rows. Squares are 2x2, wide rectangles 4x2, alternating across both rows.</p></div>
       <div class="tile t-lav"><h4 style="font-weight:500">The cut</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Each photo stays one image. A page-coloured ring around each cell draws the gaps, so nothing is distorted.</p></div>
-      <div class="tile t-lav"><h4 style="font-weight:500">Captions</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Text on photos sits on a plum-tinted fade. Stand-in photos are credited in <code>site/public/images/CREDITS.md</code>.</p></div>
+      <div class="tile t-lav"><h4 style="font-weight:500">Words go in blocks</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Text never sits on a photo and there are no fades. The words get their own white block 4px below. Stand-in photos are credited in <code>site/public/images/CREDITS.md</code>.</p></div>
     </div>
   </section>
 
@@ -524,7 +545,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
         <li>Fill a block with bright violet.</li>
         <li>Add decorative arrows, icon circles or play buttons.</li>
         <li>Add eyebrows, tags or labels the client did not write.</li>
-        <li>Use gradients or glows as decoration.</li>
+        <li>Use gradients or glows as decoration, or put text over photos.</li>
         <li>Change the layout when the task is colour.</li>
         <li>Use ease-in, or let anything snap.</li>
       </ul></div>
@@ -535,7 +556,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
 
 <footer>
   <div class="wrap">
-    <span>ListLabs brand guidelines v3.2. Working name; logo provisional.</span>
+    <span>ListLabs brand guidelines v3.3. Working name; logo provisional.</span>
     <span>Tokens: <code>site/src/app/globals.css</code> · Spec: <code>DESIGN.md</code></span>
   </div>
 </footer>

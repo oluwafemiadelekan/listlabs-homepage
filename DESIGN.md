@@ -109,7 +109,7 @@ Tokens: `site/src/app/globals.css`. Sections: `site/src/components/home`. Shared
 - Light blocks are lavender `#E3E1F1`, sometimes with a faint lavender wash.
 - Muted violet `#6F5FD0` is a mark only: the @ in the handle field, the outline around "you choose who sees it",
   the binoculars mark, the "you" dot in the visibility field. Never a block, never a heading.
-- Photo captions sit on a plum-tinted fade for legibility.
+- Text never sits on a photo. Photos and words are separate blocks, 4px apart.
 
 ## Typography
 
@@ -119,7 +119,7 @@ and one small inline icon mark. Body 16px, small 14px, tile copy 13px.
 
 ## Layout
 
-Container 1080px plus 24px gutters. Order: header, hero row, photo strip, statement, uses bento, features gallery,
+Container 1080px plus 24px gutters. Order: header, hero row, photo strip, statement, example listings, uses bento, features gallery,
 how it works, try it, close, footer. Section spacing is large (80 to 128px); tile spacing is tiny (4px).
 
 ## Shapes
@@ -137,7 +137,11 @@ how it works, try it, close, footer. Section spacing is large (80 to 128px); til
 - Button: plum-black pill. With `arrow`, a white circle holds an up-right arrow that turns 45 degrees on hover.
 - Capsule: white pill holding the field and its button; stacks on mobile. The handle field has a violet @.
 - Use tile: whole tile is a link to its audience page. Visibility option at the top, title, copy, audience name at the bottom.
-- Feature tile: photo standing in for the product clip, with title and one line of copy over a fade.
+- Listing card: modelled on the client's product card. Photo block with an asset-type pill, then a white block 4px below:
+  price, title, location, up to two stats in page-grey cells, and the visibility level it uses (violet icon, level, who).
+  No lister names (the brief bans named people on the homepage).
+- Feature tile: photo block standing in for the product clip, and a plain white block 4px below with the title and one line.
+  No overlay, no fade.
 - Steps: numbered pill rows. A rounded tile floats beside the active row and glides between rows on a spring.
   Step two's tile is the visibility field: you at the centre, people lighting outward from Private to Public.
 
@@ -146,5 +150,5 @@ how it works, try it, close, footer. Section spacing is large (80 to 128px); til
 - Do keep tiles 4px apart and radii large.
 - Do make every arrow a real link. Don't add decorative arrows, icon circles or play buttons.
 - Don't add eyebrows, tags or labels the client did not write.
-- Don't use bright violet blocks, gradients for decoration, or glows.
+- Don't use bright violet blocks, gradients for decoration, glows, or text over photos.
 - Don't change the layout when asked to change colour.

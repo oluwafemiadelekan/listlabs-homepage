@@ -155,6 +155,8 @@
 
 @layer components {
   .tnum { font-variant-numeric: tabular-nums; }
+  /* One gap between every section on the page. Tiles inside a section sit 4px apart. */
+  .section-gap { padding-top: clamp(96px, 7vw + 48px, 152px); }
   .container {
     width: 100%;
     max-width: calc(var(--container) + var(--gutter) * 2);

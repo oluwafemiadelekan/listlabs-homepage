@@ -46,6 +46,9 @@ including its "What changed" table). A guide that describes an older design is a
 - Nothing may look clickable unless it is. No decorative arrows, icon circles or play buttons.
 - No extra tags, eyebrows or labels. A visitor should understand what they see without them.
 - Tiles sit 4px apart with large radii so neighbouring shapes read as one cut-up form.
+- Header plus hero fill exactly one screen. Every later section uses `.section-gap`; never mix paddings.
+- Every claim button and form opens the claim overlay (`site/src/components/claim/ClaimFlow.tsx`).
+- Listing cards are buttons that open the details overlay. Photos never carry text; words go in a block below.
 
 ## Motion rules
 

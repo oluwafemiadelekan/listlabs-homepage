@@ -7,7 +7,7 @@ import { HandleForm, ListingForm } from "@/components/ui/Field";
 /** Try it: one centred line and one field, in the statement's manner. */
 export function TryIt() {
   return (
-    <section id="try" className="scroll-mt-6 pt-24 sm:pt-32">
+    <section id="try" className="section-gap scroll-mt-6">
       <div className="container">
         <Reveal className="mx-auto flex max-w-[640px] flex-col items-center text-center">
           <h2 className="t-h2">Get started right now</h2>
@@ -34,7 +34,7 @@ const SOCIAL = [
 export function Close() {
   return (
     <>
-      <section id="claim" className="scroll-mt-6 pt-24 sm:pt-32">
+      <section id="claim" className="section-gap scroll-mt-6">
         <div className="container">
           <Reveal>
             <div data-scene="dark" className="rounded-card bg-plum px-6 py-16 text-paper sm:px-12 sm:py-20">

@@ -7,6 +7,7 @@ import { List, X } from "@phosphor-icons/react";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { BRAND } from "@/lib/brand";
+import { useClaim } from "@/components/claim/ClaimFlow";
 import { EASE_OUT_EXPO } from "@/lib/motion";
 
 export const NAV_LINKS = [
@@ -19,6 +20,7 @@ export const NAV_LINKS = [
 /** Logo left; small links and the one account button right. As quiet as the reference. */
 export function Header() {
   const [open, setOpen] = useState(false);
+  const claim = useClaim();
   return (
     <header className="relative z-30">
       <div className="container flex h-20 items-center justify-between gap-6">
@@ -39,7 +41,7 @@ export function Header() {
             ))}
           </nav>
           <span className="hidden sm:block">
-            <Button size="sm" arrow href="#claim">
+            <Button size="sm" arrow onClick={() => claim.open()}>
               {BRAND.ctaNav}
             </Button>
           </span>
@@ -75,7 +77,14 @@ export function Header() {
                 </li>
               ))}
               <li className="p-1 pt-2">
-                <Button arrow href="#claim" className="w-full justify-between">
+                <Button
+                  arrow
+                  className="w-full justify-between"
+                  onClick={() => {
+                    setOpen(false);
+                    claim.open();
+                  }}
+                >
                   {BRAND.ctaNav}
                 </Button>
               </li>

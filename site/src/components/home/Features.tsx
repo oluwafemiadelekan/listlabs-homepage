@@ -44,7 +44,7 @@ function Tile({ f, className, children, tall = false }: { f: F; className?: stri
  */
 export function Features() {
   return (
-    <section id="features" className="scroll-mt-6 pt-14 sm:pt-16">
+    <section id="features" className="section-gap scroll-mt-6">
       <div className="container">
         <RevealGroup className="grid gap-[4px] md:h-[820px] md:grid-cols-3 md:grid-rows-2">
           <RevealItem className="md:row-span-2">

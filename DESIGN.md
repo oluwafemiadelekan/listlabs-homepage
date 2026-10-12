@@ -119,13 +119,19 @@ and one small inline icon mark. Body 16px, small 14px, tile copy 13px.
 
 ## Layout
 
-Container 1080px plus 24px gutters. Order: header, hero row, photo strip, statement, example listings, uses bento, features gallery,
-how it works, try it, close, footer. Section spacing is large (80 to 128px); tile spacing is tiny (4px).
+Container 1080px plus 24px gutters. Order: header, hero (headline, claim field under it, photo strip), statement,
+your listings, uses bento, features gallery, how it works, try it, close, footer.
+
+- The header and hero fill exactly one screen (`min-h: calc(100svh - 80px)`); the photo strip grows to fill what is left.
+- Every section after the hero is separated by one gap, `.section-gap`: `clamp(96px, 7vw + 48px, 152px)`, about 150px on desktop.
+  Generous, Airbnb-like. Never mix section paddings.
+- Tiles inside a section sit 4px apart.
 
 ## Shapes
 
-- Photo strip: a 14-unit grid, two rows. Each photo is one continuous image cut into rounded cells,
-  alternating squares (2x2 units) and wide rectangles (4x2 units). Cells are 4px apart. The cut is drawn with a
+- Photo strip: desktop is a 14-unit grid, three rows of cells. Each photo is one continuous image cut into rounded cells,
+  alternating squares (2x2 units) and wide rectangles (4x2 units). Cells are 4px apart. On mobile the middle photo
+  alone fills the rest of the screen, cut wide / square, square / wide. The cut is drawn with a
   page-coloured ring around each cell, so the photo itself is never distorted.
 - Cards and tiles: 26px radius, 4px apart. Neighbouring tiles read as one cut-up shape.
 - Gallery title: a plum tab cut into the corner of the first photo, with a 4px page-coloured ring and
@@ -137,9 +143,17 @@ how it works, try it, close, footer. Section spacing is large (80 to 128px); til
 - Button: plum-black pill. With `arrow`, a white circle holds an up-right arrow that turns 45 degrees on hover.
 - Capsule: white pill holding the field and its button; stacks on mobile. The handle field has a violet @.
 - Use tile: whole tile is a link to its audience page. Visibility option at the top, title, copy, audience name at the bottom.
-- Listing card: modelled on the client's product card. Photo block with an asset-type pill, then a white block 4px below:
+- Your listings: the example cards sit in a lavender frame titled "Your listings" with a count per visibility level,
+  because only a lister's own view would show Private and Unlisted listings.
+- Listing card: the whole card is a button. Modelled on the client's product card. Photo block with an asset-type pill, then a white block 4px below:
   price, title, location, up to two stats in page-grey cells, and the visibility level it uses (violet icon, level, who).
   No lister names (the brief bans named people on the homepage).
+- Listing details: a dialog over a dimmed plum backdrop (a bottom sheet on mobile). Photo block, facts block,
+  a "Who sees it" five-level selector you can change in place, and a claim block. Escape, the backdrop and the
+  close button all dismiss it.
+- Claim flow: a full-screen overlay opened by every claim button and form. Steps: handle (live availability check,
+  suggestions when taken), email, six-digit code, "What do you move?" (optional), done. A live profile preview sits
+  beside the steps on desktop. The "I'm listing" field opens it with the draft carried over. Escape closes it.
 - Feature tile: photo block standing in for the product clip, and a plain white block 4px below with the title and one line.
   No overlay, no fade.
 - Steps: numbered pill rows. A rounded tile floats beside the active row and glides between rows on a spring.

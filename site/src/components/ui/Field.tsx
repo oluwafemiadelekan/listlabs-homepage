@@ -7,6 +7,7 @@ import { cn } from "@/lib/cn";
 import { BRAND } from "@/lib/brand";
 import { microTransition } from "@/lib/motion";
 import { Button } from "./Button";
+import { useClaim } from "@/components/claim/ClaimFlow";
 
 /* ---------- Plain input ---------- */
 
@@ -100,11 +101,11 @@ export function Capsule({
     if (!onSubmitValue) return;
     setBusy(true);
     setNote(null);
-    const msg = onSubmitValue(value.trim());
     window.setTimeout(() => {
+      const msg = onSubmitValue(value.trim());
       setBusy(false);
       setNote(msg ?? null);
-    }, 650);
+    }, 380);
   };
 
   const invalid = Boolean(error);
@@ -169,6 +170,7 @@ export function Capsule({
 }
 
 export function HandleForm({ className, error }: { className?: string; error?: string }) {
+  const { open } = useClaim();
   return (
     <Capsule
       prefix="@"
@@ -179,12 +181,15 @@ export function HandleForm({ className, error }: { className?: string; error?: s
       helper={BRAND.helper}
       error={error}
       className={className}
-      onSubmitValue={() => "Concept only. In the build this goes to the real product signup."}
+      onSubmitValue={(v) => {
+        open({ handle: v });
+      }}
     />
   );
 }
 
 export function ListingForm({ className }: { className?: string }) {
+  const { open } = useClaim();
   return (
     <Capsule
       name="listing"
@@ -192,7 +197,9 @@ export function ListingForm({ className }: { className?: string }) {
       ariaLabel="Describe something you are listing"
       action="Start listing"
       className={className}
-      onSubmitValue={() => "Concept only. In the build this starts a listing."}
+      onSubmitValue={(v) => {
+        open({ draft: v || undefined });
+      }}
     />
   );
 }

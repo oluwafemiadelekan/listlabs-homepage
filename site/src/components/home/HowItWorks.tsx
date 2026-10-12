@@ -140,7 +140,7 @@ export function HowItWorks() {
   }, [active]);
 
   return (
-    <section id="how" className="scroll-mt-6 pt-24 sm:pt-32">
+    <section id="how" className="section-gap scroll-mt-6">
       <div className="container">
         <div className="grid gap-5 sm:grid-cols-[1fr_minmax(0,300px)] sm:items-end">
           <Reveal>

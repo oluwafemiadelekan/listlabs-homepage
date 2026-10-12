@@ -32,7 +32,7 @@ const USES = [
  */
 export function Uses() {
   return (
-    <section id="uses" className="scroll-mt-6 pt-20 sm:pt-28">
+    <section id="uses" className="section-gap scroll-mt-6">
       <div className="container">
         <RevealGroup className="grid gap-[4px] lg:grid-cols-2">
           <RevealItem className="flex min-h-[240px] flex-col justify-end rounded-card bg-[linear-gradient(140deg,#f1f0f9_0%,#dcd8ef_100%)] p-7 sm:p-8">

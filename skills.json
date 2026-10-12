@@ -1,0 +1,19 @@
+{
+  "about": "Design skills this project was built with. frontend-design is vendored in .claude/skills (Apache-2.0). The rest are third-party and are installed from their own repositories by scripts/install-skills.sh or scripts/install-skills.ps1, so their authors' licences and updates stay with them.",
+  "vendored": [
+    { "name": "frontend-design", "source": "anthropics/skills", "path": ".claude/skills/frontend-design", "license": "Apache-2.0" }
+  ],
+  "install": [
+    { "name": "impeccable", "source": "pbakaus/impeccable", "use": "Design direction, critique, polish, audit. The main design skill." },
+    { "name": "emil-design-eng", "source": "emilkowalski/skill", "use": "Emil Kowalski's UI polish and animation philosophy." },
+    { "name": "review-animations", "source": "emilkowalski/skill", "use": "Review motion against a strict craft bar before calling it done." },
+    { "name": "prototype", "source": "emilkowalski/skills", "use": "Build several variants of one UI piece behind a picker." },
+    { "name": "animation-vocabulary", "source": "emilkowalski/skills", "use": "Name a motion effect precisely." },
+    { "name": "apple-design", "source": "emilkowalski/skills", "use": "Fluid, physical motion and interface foundations." },
+    { "name": "make-interfaces-feel-better", "source": "jakubkrehel/make-interfaces-feel-better", "use": "Detail pass: shadows, radii, icons, micro-interactions." },
+    { "name": "oklch-skill", "source": "jakubkrehel/oklch-skill", "use": "Colour work in OKLCH, contrast checks." },
+    { "name": "baseline-ui", "source": "ibelick/ui-skills", "use": "Fast spacing and hierarchy cleanup." },
+    { "name": "fixing-accessibility", "source": "ibelick/ui-skills", "use": "Accessibility audit and fixes." },
+    { "name": "fixing-motion-performance", "source": "ibelick/ui-skills", "use": "Animation performance audit." }
+  ]
+}

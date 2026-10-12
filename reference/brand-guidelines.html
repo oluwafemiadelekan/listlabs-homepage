@@ -1,0 +1,1354 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ListLab Brand Guidelines</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%238B5CF6'/%3E%3Cg fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 5h14'/%3E%3Cpath d='M19.5 5v12L9.2 36.1a4.5 4.5 0 0 0 4 6.7h21.6a4.5 4.5 0 0 0 4-6.7L28.5 17V5'/%3E%3Cpath d='M17.5 31l5 5 8.5-9'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="description" content="Internal brand guidelines for ListLab (working name).">
+<meta property="og:title" content="ListLab Brand Guidelines">
+<meta property="og:description" content="Turn your network into deals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Brand primary */
+    --primary: #8B5CF6;
+    --primary-dark: #7C3AED;
+    --primary-light: #A78BFA;
+    --accent: #C084FC;
+
+    /* Violet ramp */
+    --violet-50: #F5F3FF;
+    --violet-100: #EDE9FE;
+    --violet-200: #DDD6FE;
+    --violet-300: #C4B5FD;
+    --violet-400: #A78BFA;
+    --violet-500: #8B5CF6;
+    --violet-600: #7C3AED;
+    --violet-700: #6D28D9;
+    --violet-800: #5B21B6;
+    --violet-900: #4C1D95;
+
+    /* Neutrals */
+    --ink: #111827;
+    --gray-700: #374151;
+    --gray-500: #6B7280;
+    --gray-300: #D1D5DB;
+    --gray-100: #F3F4F6;
+    --gray-50: #F9FAFB;
+    --white: #FFFFFF;
+    --black: #000000;
+
+    /* System */
+    --font: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --radius: 12px;
+    --radius-btn: 10px;
+    --maxw: 1040px;
+    --border: 1px solid rgba(17,24,39,0.07);
+    --shadow: 0 1px 2px rgba(17,24,39,0.05);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--primary-dark); }
+  code { font-family: var(--mono); font-size: 0.85em; }
+
+  /* Logo instances: color is controlled entirely by CSS via currentColor.
+     Purple on light backgrounds, white on dark. Never blue. */
+  .mark { display: block; color: var(--primary); flex: 0 0 auto; }
+  .mark.on-dark { color: var(--white); }
+
+  /* Placeholder-name banner */
+  #banner {
+    background: var(--violet-100);
+    color: var(--violet-900);
+    border-bottom: 1px solid var(--violet-200);
+    font-size: 14px;
+    padding: 10px 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  #banner.hidden { display: none; }
+  #banner p { margin: 0; }
+  #banner button {
+    background: transparent;
+    border: 1px solid var(--violet-300);
+    color: var(--violet-900);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 13px;
+    font-family: var(--font);
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+  #banner button:hover { background: var(--violet-200); }
+
+  /* Nav */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: var(--border);
+  }
+  .nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-toggle {
+    display: none;
+    background: var(--gray-100);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--font);
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  nav a {
+    display: block;
+    padding: 6px 10px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-500);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 150ms ease-out, background 150ms ease-out;
+  }
+  nav a:hover { color: var(--ink); background: var(--gray-100); }
+  nav a.active { color: var(--primary-dark); background: var(--violet-50); font-weight: 600; }
+
+  /* Sections */
+  section { padding: 96px 24px; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--primary-dark);
+    margin: 0 0 16px;
+  }
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 48px 0 16px;
+    letter-spacing: -0.01em;
+  }
+  .lead { font-size: 18px; color: var(--gray-700); max-width: 62ch; margin: 0; }
+  .muted { color: var(--gray-500); }
+  .note {
+    background: var(--violet-50);
+    border: 1px solid var(--violet-200);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 16px;
+    font-size: 14px;
+    color: var(--violet-900);
+    margin: 24px 0;
+  }
+  .note code {
+    background: var(--white);
+    border: 1px solid var(--violet-200);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(160deg, #000000 0%, #0b0714 55%, #140a24 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 168px 24px 152px;
+  }
+  .hero .mark { margin: 0 auto 56px; }
+  .hero .eyebrow { color: var(--primary-light); }
+  .hero h1 {
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin: 0 auto 32px;
+    max-width: 16ch;
+  }
+  .hero .hero-note {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: var(--radius-btn);
+    padding: 12px 22px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: background 160ms ease-out, color 160ms ease-out, border-color 160ms ease-out, transform 160ms ease-out;
+  }
+  .btn-primary { background: var(--primary); color: var(--white); }
+  .btn-primary:hover { background: var(--primary-dark); }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-primary:focus-visible { outline: 3px solid var(--primary-light); outline-offset: 2px; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--primary-dark);
+    border-color: var(--primary);
+  }
+  .btn-secondary:hover { background: var(--violet-100); }
+  .btn-secondary:focus-visible { outline: 3px solid var(--primary-light); outline-offset: 2px; }
+  .btn svg { width: 16px; height: 16px; flex: 0 0 auto; }
+  .btn-danger { background: #DC2626; color: var(--white); }
+  .btn-danger:hover { background: #B91C1C; }
+  .btn-danger:active { transform: translateY(1px); }
+  .btn-danger:focus-visible { outline: 3px solid #FCA5A5; outline-offset: 2px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+  .space-row { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+  .space-item { text-align: center; }
+  .space-block { background: var(--violet-200); border-radius: 3px; margin: 0 auto 6px; }
+  .space-item .tok { font-family: var(--mono); font-size: 11px; color: var(--gray-500); }
+
+  /* Cards + grids */
+  .grid { display: grid; gap: 16px; }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .card {
+    background: var(--white);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+  .alt { background: var(--gray-50); }
+  .alt .card { border-color: rgba(17,24,39,0.06); }
+
+  /* Logo cards */
+  .logo-card {
+    border-radius: var(--radius);
+    padding: 48px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--border);
+    min-height: 160px;
+  }
+  .logo-card.light { background: var(--white); }
+  .logo-card.dark { background: var(--black); border-color: rgba(255,255,255,0.08); }
+  .logo-card.purple { background: var(--primary); border-color: var(--primary-dark); }
+  .clearspace {
+    padding: 48px;
+    background:
+      repeating-linear-gradient(45deg, var(--violet-50), var(--violet-50) 10px, var(--white) 10px, var(--white) 20px);
+    border: 1px dashed var(--violet-300);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .clearspace .box {
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    padding: 24px 32px;
+    border-radius: var(--radius);
+  }
+
+  /* Supporting-asset mocks */
+  .asset-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: stretch; margin-top: 16px; }
+  .asset { font-size: 13px; color: var(--gray-500); }
+  .app-tile {
+    width: 88px; height: 88px;
+    border-radius: 20px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+  .social-mock {
+    background: var(--black);
+    border-radius: var(--radius);
+    padding: 32px;
+    width: 320px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+  .social-mock .tagline { color: rgba(255,255,255,0.6); font-size: 13px; }
+
+  /* Dos and don'ts grid */
+  .dd { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .dd .item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: var(--border);
+    background: var(--white);
+  }
+  .dd .thumb {
+    height: 116px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-50);
+    overflow: hidden;
+  }
+  .dd .stretch svg { transform: scaleX(1.55); }
+  .dd .off-palette { color: #0048FF; }
+  .dd .shadowed svg { filter: drop-shadow(0 10px 8px rgba(0,0,0,0.5)); }
+  .dd .rotated svg { transform: rotate(18deg); }
+  .dd .busy {
+    background: repeating-linear-gradient(45deg, var(--violet-300) 0 10px, var(--gray-500) 10px 20px, #D97706 20px 30px);
+  }
+  .dd .label {
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tag-good { color: #047857; }
+  .tag-bad { color: #B91C1C; }
+  .badge {
+    display: inline-flex;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    font-size: 12px; color: var(--white);
+    flex: 0 0 auto;
+  }
+  .badge.ok { background: #059669; }
+  .badge.no { background: #DC2626; }
+
+  /* Color swatches */
+  .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .swatch {
+    border: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--white);
+    text-align: left;
+    padding: 0;
+    font-family: var(--font);
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+  }
+  .swatch:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(17,24,39,0.08); }
+  .swatch:focus-visible { outline: 3px solid var(--primary-light); outline-offset: 2px; }
+  .swatch .chip { height: 72px; }
+  .swatch .meta { padding: 8px 10px; }
+  .swatch .name { font-size: 12px; font-weight: 600; color: var(--ink); }
+  .swatch .hex { font-size: 11px; color: var(--gray-500); font-family: var(--mono); }
+  .swatch .ring { box-shadow: inset 0 0 0 1px var(--gray-300); }
+
+  /* Color role cards */
+  .role-chips { display: flex; gap: 6px; flex: 0 0 auto; }
+  .role-chip { width: 40px; height: 40px; border-radius: 10px; }
+  .role-chip.ringed { box-shadow: inset 0 0 0 1px var(--gray-300); }
+  .role-row { display: flex; align-items: center; gap: 14px; }
+
+  /* Type specimens */
+  .spec { border-top: var(--border); padding: 24px 0; }
+  .spec:first-child { border-top: none; padding-top: 0; }
+  .spec:last-child { padding-bottom: 0; }
+  .spec .demo { color: var(--ink); }
+  .spec .spec-meta { font-size: 12px; color: var(--gray-500); margin-top: 12px; font-family: var(--mono); }
+  .weights { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+  .weights div { font-size: 26px; letter-spacing: -0.01em; }
+  .fontrole { display: flex; flex-direction: column; gap: 4px; }
+  .fontrole + .fontrole { margin-top: 20px; padding-top: 20px; border-top: var(--border); }
+  .fontrole .sample { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .fontrole .sample.mono { font-family: var(--mono); font-weight: 500; font-size: 18px; }
+  .fontrole .stack { font-size: 12px; color: var(--gray-500); font-family: var(--mono); }
+
+  /* Signup field pattern */
+  .signup {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin-top: 8px;
+  }
+  .handle-field {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-btn);
+    padding: 0 14px;
+    flex: 1 1 220px;
+    transition: border-color 160ms ease-out, box-shadow 160ms ease-out;
+  }
+  .handle-field:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--violet-100);
+  }
+  .handle-field span { color: var(--gray-500); font-weight: 600; }
+  .handle-field input {
+    border: none;
+    outline: none;
+    padding: 12px 6px;
+    font-size: 15px;
+    font-family: var(--font);
+    width: 100%;
+    background: transparent;
+    color: var(--ink);
+  }
+  .microcopy { font-size: 13px; color: var(--gray-500); margin-top: 12px; line-height: 1.5; }
+
+  /* Voice do/don't table */
+  table.voice {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 15px;
+  }
+  table.voice th, table.voice td {
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: var(--border);
+    vertical-align: top;
+  }
+  table.voice th { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-500); font-weight: 600; }
+  table.voice td.bad { color: var(--gray-500); }
+  table.voice td.good { color: var(--ink); font-weight: 500; }
+  .wrap-table { overflow-x: auto; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .chip-word {
+    background: #FEF2F2;
+    border: 1px solid #FCA5A5;
+    color: #991B1B;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+  .chip-neutral {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-300);
+    color: var(--gray-700);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .rotation { list-style: none; padding: 0; margin: 16px 0 0; }
+  .rotation li {
+    padding: 14px 16px;
+    background: var(--gray-50);
+    border: var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .boiler {
+    background: var(--gray-50);
+    border-radius: var(--radius);
+    padding: 24px;
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    border: var(--border);
+    margin: 16px 0 0;
+  }
+
+  /* Feel section lists */
+  .principles { margin: 0; padding-left: 18px; color: var(--gray-700); }
+  .principles li { margin-bottom: 8px; }
+  .pains { margin: 8px 0 0; padding-left: 20px; color: var(--gray-700); }
+  .pains li { margin-bottom: 10px; }
+  .pains strong { color: var(--ink); }
+
+  /* Imagery specimens */
+  .listing {
+    border: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 280px;
+    margin: 0 auto;
+    box-shadow: var(--shadow);
+    background: var(--white);
+  }
+  .listing .photo { height: 120px; background: linear-gradient(135deg, #EEEAFB, #E3DDF3); }
+  .listing .body { padding: 16px; }
+  .listing .title { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+  .listing .row { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+  .listing .price { font-weight: 700; font-size: 16px; }
+  .pill {
+    background: var(--violet-100);
+    color: var(--violet-700);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .icon-row { display: flex; gap: 24px; justify-content: center; align-items: center; padding: 32px 0; color: var(--gray-700); }
+  .icon-row svg { width: 28px; height: 28px; }
+  .ui-window {
+    background: #0B0B11;
+    border: 1px solid #24242E;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .ui-bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid #1C1C26; }
+  .ui-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .ui-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .ui-row {
+    height: 36px;
+    border-radius: 6px;
+    background: #15151D;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+  }
+  .ui-row .avatar { width: 16px; height: 16px; border-radius: 50%; background: #2A2A36; flex: 0 0 auto; }
+  .ui-row .bar { height: 7px; border-radius: 4px; background: #2A2A36; }
+  .ui-row.active { background: rgba(139,92,246,0.14); box-shadow: inset 0 0 0 1px rgba(139,92,246,0.45); }
+  .ui-row.active .bar { background: var(--primary-light); }
+  .ui-row.active .avatar { background: var(--primary); }
+  .imagery-card { display: flex; flex-direction: column; justify-content: space-between; }
+  .imagery-card .demo-area { flex: 1; display: flex; align-items: center; justify-content: center; padding: 8px 0 16px; }
+
+  /* Motion demo */
+  .motion-demo {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-btn);
+    padding: 14px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 175ms ease-out, background 175ms ease-out;
+  }
+  .motion-demo:hover { transform: translateY(-3px); background: var(--primary-dark); }
+
+  /* Footer */
+  footer {
+    background: var(--black);
+    color: rgba(255,255,255,0.7);
+    padding: 72px 24px;
+  }
+  footer .wrap { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  footer .mark { margin-bottom: 20px; }
+  footer .ftag { color: var(--white); font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+  footer address { font-style: normal; font-size: 14px; line-height: 1.7; }
+
+  /* Toast */
+  #toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: var(--mono);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 175ms ease-out, transform 175ms ease-out;
+    z-index: 100;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .g2, .g3, .dd { grid-template-columns: 1fr; }
+    .swatches { grid-template-columns: repeat(3, 1fr); }
+    section { padding: 64px 20px; }
+    .hero { padding: 104px 20px 96px; }
+    .hero h1 { font-size: 42px; }
+    h2 { font-size: 28px; }
+    .nav-toggle { display: block; }
+    nav#menu { display: none; width: 100%; }
+    nav#menu.open { display: block; }
+    nav#menu ul { flex-direction: column; width: 100%; }
+    nav#menu a { padding: 10px 12px; }
+    .nav-inner { flex-wrap: wrap; }
+  }
+  @media (max-width: 480px) {
+    .swatches { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 56px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Logo symbols: drawn once, instanced everywhere with <use>. All strokes and
+     fills use currentColor so CSS color controls the mark completely. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ll-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 5h14"/>
+    <path d="M19.5 5v12L9.2 36.1a4.5 4.5 0 0 0 4 6.7h21.6a4.5 4.5 0 0 0 4-6.7L28.5 17V5"/>
+    <path d="M17.5 31l5 5 8.5-9"/>
+  </symbol>
+  <symbol id="ll-logo" viewBox="0 11 140 28">
+    <use href="#ll-icon" x="0" y="12" width="24" height="24"/>
+    <text x="30" y="35" font-family="'Inter', system-ui, sans-serif" font-weight="900" font-size="29" letter-spacing="-1.2" fill="currentColor" stroke="none">ListLab</text>
+  </symbol>
+</svg>
+
+<!-- Placeholder-name banner -->
+<div id="banner">
+  <p>Working name. "ListLab" is a placeholder and will be swapped once the final name is locked.</p>
+  <button onclick="document.getElementById('banner').classList.add('hidden')" aria-label="Dismiss banner">Dismiss</button>
+</div>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <svg class="mark" width="24" height="24" role="img" aria-label="ListLab logo"><use href="#ll-icon"/></svg>
+      ListLab
+    </a>
+    <button class="nav-toggle" onclick="document.getElementById('menu').classList.toggle('open')" aria-label="Toggle menu">Menu</button>
+    <nav id="menu">
+      <ul>
+        <li><a href="#foundation">Foundation</a></li>
+        <li><a href="#feel">Feel</a></li>
+        <li><a href="#imagery">Imagery</a></li>
+        <li><a href="#logo">Logo</a></li>
+        <li><a href="#color">Color</a></li>
+        <li><a href="#type">Type</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#voice">Voice</a></li>
+        <li><a href="#motion">Motion</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero" id="top">
+  <svg class="mark on-dark" width="330" height="66" role="img" aria-label="ListLab logo"><use href="#ll-logo"/></svg>
+  <p class="eyebrow">Brand Guidelines</p>
+  <h1>Turn your network into deals.</h1>
+  <p class="hero-note">Internal brand reference. Working name: ListLab.</p>
+</div>
+
+<!-- 1. Foundation -->
+<section id="foundation">
+  <div class="wrap">
+    <p class="eyebrow">01 / Foundation</p>
+    <h2>Brand foundation</h2>
+    <p class="lead">What we are, and who it is for. Everything else in this guide serves these three lines.</p>
+    <div class="grid g3" style="margin-top:32px;">
+      <div class="card">
+        <h3 style="margin-top:0;font-size:16px;">Mission</h3>
+        <p class="muted" style="margin:0;">Open access to opportunity.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;font-size:16px;">Positioning</h3>
+        <p class="muted" style="margin:0;">Not another marketplace taking a cut. A working tool for people who move things.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;font-size:16px;">One-liner</h3>
+        <p class="muted" style="margin:0;">ListLab turns your network into deals.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Name replaceability.</strong> The name, wordmark, and logo are the only provisional elements in this system, built to be swapped in one pass when we rename. Treat "ListLab" as a single swappable placeholder token. The wordmark on this page is one SVG text string defined once and instanced everywhere, so a rename is a one-line change. Everything else (colors, type, voice, layout) is permanent.
+    </div>
+
+    <h3>Brand perspective</h3>
+    <div class="grid g3" style="margin-top:8px;">
+      <div class="card">
+        <h3 style="margin-top:0;font-size:15px;">What we believe</h3>
+        <p class="muted" style="margin:0;font-size:15px;">The best deals move through relationships, not public marketplaces.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;font-size:15px;">What we are</h3>
+        <p class="muted" style="margin:0;font-size:15px;">A working tool for people who move things. Built for closing, not posting.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;font-size:15px;">What we are against</h3>
+        <p class="muted" style="margin:0;font-size:15px;">Marketplaces that take a cut and control visibility. Feeds built to keep you scrolling.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <h3 style="margin-top:0;font-size:15px;">The three pains we exist to kill</h3>
+      <ol class="pains">
+        <li><strong>Reach.</strong> The right buyer is out there and you can't find them fast enough.</li>
+        <li><strong>The text bomb.</strong> Every new deal means saying the same thing 50 times.</li>
+        <li><strong>No private middle ground.</strong> Go fully public and lose your edge, or stay private and reach no one. Nothing between.</li>
+      </ol>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <h3 style="margin-top:0;font-size:15px;">Who it's for</h3>
+      <div class="chips" style="margin-top:8px;">
+        <span class="chip-neutral">Collectibles dealers</span>
+        <span class="chip-neutral">Classic-car and specialty-vehicle dealers</span>
+        <span class="chip-neutral">Small-business brokers</span>
+        <span class="chip-neutral">Real estate pros and investors</span>
+        <span class="chip-neutral">Anyone who moves value through private relationships</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Brand feel -->
+<section id="feel" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">02 / Feel</p>
+    <h2>Brand feel and art direction</h2>
+    <p class="lead">Premium, modern Silicon Valley. Confident and quiet. If a choice adds noise, cut it.</p>
+
+    <div class="grid g2" style="margin-top:32px;">
+      <div class="card">
+        <h3 style="margin-top:0;">Principles</h3>
+        <ul class="principles">
+          <li>Restraint over decoration. Generous whitespace. Let elements breathe.</li>
+          <li>High craft: crisp type, precise alignment, one consistent 8px spacing scale.</li>
+          <li>Premium and modern, not flashy. Reference points: Linear, Stripe, Vercel.</li>
+          <li>Clean surfaces, subtle 1px low-opacity borders, soft shadows. No heavy gradients, no busy textures, no glows.</li>
+          <li>Violet used sparingly, as accent and for primary actions, never as large flat fills.</li>
+          <li>Dark, confident hero. Calm, light content sections.</li>
+          <li>Motion subtle and fast (150-200ms ease-out), for clarity only.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px;">
+          <div class="label tag-good" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;"><span class="badge ok">&check;</span> Do</div>
+          <p class="muted" style="margin:8px 0 0;font-size:15px;">One accent color. Lots of space. Sharp type. Quiet 1px borders and soft shadows that you barely notice.</p>
+        </div>
+        <div class="card">
+          <div class="label tag-bad" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;"><span class="badge no">&times;</span> Avoid</div>
+          <p class="muted" style="margin:8px 0 0;font-size:15px;">Gradients everywhere. Glows. Drop shadows on everything. Cramped layouts and busy textures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Imagery -->
+<section id="imagery" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">03 / Imagery</p>
+    <h2>Imagery and iconography</h2>
+    <p class="lead">Real dealmaking contexts over stock gloss. Private and quiet over loud. Simple line icons. Screenshots framed on dark.</p>
+
+    <div class="grid g3" style="margin-top:32px;">
+      <div class="card imagery-card">
+        <div class="demo-area">
+          <div class="listing">
+            <div class="photo"></div>
+            <div class="body">
+              <div class="title">1967 Mustang Fastback</div>
+              <div class="row">
+                <div class="price">$68,500</div>
+                <div class="pill">Match</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="microcopy" style="margin-top:0;">Structured, clean, real. Listings look like inventory, not ads.</p>
+      </div>
+      <div class="card imagery-card">
+        <div class="demo-area">
+          <div class="icon-row" aria-label="Line icon examples">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tag icon"><path d="M3.3 11.2 12.8 20.7a1 1 0 0 0 1.4 0l6.5-6.5a1 1 0 0 0 0-1.4L11.2 3.3A1 1 0 0 0 10.5 3H4a1 1 0 0 0-1 1v6.5a1 1 0 0 0 .3.7Z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Search icon"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Link icon"><path d="m9.5 14.5 5-5"/><path d="M8 12l-2.2 2.2a3.7 3.7 0 1 0 5.2 5.2L13.2 17"/><path d="M16 12l2.2-2.2a3.7 3.7 0 1 0-5.2-5.2L10.8 7"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Privacy icon"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/><path d="m4 4 16 16"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Message icon"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H7l-4 3V11.5A8.5 8.5 0 0 1 11.5 3h1A8.5 8.5 0 0 1 21 11.5Z"/></svg>
+          </div>
+        </div>
+        <p class="microcopy" style="margin-top:0;">Simple line icons, 1.5px stroke, single color.</p>
+      </div>
+      <div class="card imagery-card">
+        <div class="demo-area">
+          <div class="ui-window" role="img" aria-label="Mock product screenshot on dark">
+            <div class="ui-bar">
+              <div class="dot" style="background:#FF5F57;"></div>
+              <div class="dot" style="background:#FEBC2E;"></div>
+              <div class="dot" style="background:#28C840;"></div>
+            </div>
+            <div class="ui-body">
+              <div class="ui-row"><div class="avatar"></div><div class="bar" style="width:55%;"></div></div>
+              <div class="ui-row active"><div class="avatar"></div><div class="bar" style="width:70%;"></div></div>
+              <div class="ui-row"><div class="avatar"></div><div class="bar" style="width:45%;"></div></div>
+              <div class="ui-row"><div class="avatar"></div><div class="bar" style="width:62%;"></div></div>
+            </div>
+          </div>
+        </div>
+        <p class="microcopy" style="margin-top:0;">Screenshots framed on dark.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Logo -->
+<section id="logo">
+  <div class="wrap">
+    <p class="eyebrow">04 / Logo</p>
+    <h2>Logo</h2>
+    <p class="lead">One mark, two approved colors. Purple on light backgrounds, white on dark. Give it room, keep it whole, and never redraw it.</p>
+
+    <div class="note">
+      The source logo asset is currently blue while the brand system is violet. Per brand direction we render the mark in violet on light backgrounds and white on dark, and never use the blue. The final color logo is pending design sign-off. The SVG shown throughout this page is a faithful working recreation for reference.
+    </div>
+
+    <div class="grid g3" style="margin-top:32px;">
+      <div>
+        <div class="logo-card light"><svg class="mark" width="180" height="36" role="img" aria-label="ListLab logo, purple on white"><use href="#ll-logo"/></svg></div>
+        <p class="microcopy">On light backgrounds: purple, var(--primary).</p>
+      </div>
+      <div>
+        <div class="logo-card dark"><svg class="mark on-dark" width="180" height="36" role="img" aria-label="ListLab logo, white on black"><use href="#ll-logo"/></svg></div>
+        <p class="microcopy">On dark backgrounds: white.</p>
+      </div>
+      <div>
+        <div class="logo-card purple"><svg class="mark on-dark" width="180" height="36" role="img" aria-label="ListLab logo, white on purple"><use href="#ll-logo"/></svg></div>
+        <p class="microcopy">On purple backgrounds: white.</p>
+      </div>
+    </div>
+
+    <h3>Clear space and minimum size</h3>
+    <div class="grid g2">
+      <div>
+        <div class="clearspace"><div class="box"><svg class="mark" width="160" height="32" role="img" aria-label="ListLab logo with clear space"><use href="#ll-logo"/></svg></div></div>
+        <p class="microcopy">Keep clear space on all sides equal to at least half the lockup's height. Nothing else enters that zone.</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center;gap:24px;">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <svg class="mark" width="24" height="24" role="img" aria-label="ListLab icon at minimum size"><use href="#ll-icon"/></svg>
+          <div><strong>24px</strong> <span class="muted">minimum for the icon-only mark (favicons, inline use)</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <svg class="mark" width="140" height="28" role="img" aria-label="ListLab lockup at minimum size"><use href="#ll-logo"/></svg>
+          <div><strong>140px</strong> <span class="muted">minimum width for the full lockup</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="microcopy">A separate icon-only mark exists for tight, mobile, and favicon contexts where the full lockup does not fit.</p>
+
+    <h3>Supporting assets</h3>
+    <div class="asset-row">
+      <div class="asset">
+        <div class="app-tile"><svg class="mark on-dark" width="48" height="48" role="img" aria-label="ListLab app icon"><use href="#ll-icon"/></svg></div>
+        App icon: white icon-only mark on a purple rounded square
+      </div>
+      <div class="asset">
+        <div class="social-mock">
+          <svg class="mark on-dark" width="140" height="28" role="img" aria-label="ListLab social card lockup"><use href="#ll-logo"/></svg>
+          <div class="tagline">Turn your network into deals.</div>
+        </div>
+        Social share card: white lockup and tagline on dark
+      </div>
+    </div>
+    <p class="microcopy">Both are derived from the SVG system on this page. No separate image files are required.</p>
+
+    <h3>Dos and don'ts</h3>
+    <div class="dd" style="margin-top:8px;">
+      <div class="item">
+        <div class="thumb stretch"><svg class="mark" width="120" height="24" role="img" aria-label="Stretched logo example"><use href="#ll-logo"/></svg></div>
+        <div class="label tag-bad"><span class="badge no">&times;</span> Don't stretch or distort</div>
+      </div>
+      <div class="item">
+        <div class="thumb"><svg class="mark off-palette" width="120" height="24" role="img" aria-label="Off-palette blue logo example"><use href="#ll-logo"/></svg></div>
+        <div class="label tag-bad"><span class="badge no">&times;</span> Don't use the raw blue asset or any off-palette color</div>
+      </div>
+      <div class="item">
+        <div class="thumb shadowed"><svg class="mark" width="120" height="24" role="img" aria-label="Logo with heavy shadow example"><use href="#ll-logo"/></svg></div>
+        <div class="label tag-bad"><span class="badge no">&times;</span> Don't add shadows or effects</div>
+      </div>
+      <div class="item">
+        <div class="thumb busy"><svg class="mark on-dark" width="120" height="24" role="img" aria-label="Logo on busy background example"><use href="#ll-logo"/></svg></div>
+        <div class="label tag-bad"><span class="badge no">&times;</span> Don't place on a busy background</div>
+      </div>
+      <div class="item">
+        <div class="thumb rotated"><svg class="mark" width="120" height="24" role="img" aria-label="Rotated logo example"><use href="#ll-logo"/></svg></div>
+        <div class="label tag-bad"><span class="badge no">&times;</span> Don't rotate</div>
+      </div>
+      <div class="item">
+        <div class="thumb"><svg class="mark" width="120" height="24" role="img" aria-label="Correct logo usage"><use href="#ll-logo"/></svg></div>
+        <div class="label tag-good"><span class="badge ok">&check;</span> Do use it upright, in brand color, unaltered</div>
+      </div>
+    </div>
+    <p class="microcopy">One mark, two approved colors (violet on light, white on dark), always upright, always whole.</p>
+  </div>
+</section>
+
+<!-- 5. Color -->
+<section id="color" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">05 / Color</p>
+    <h2>Color system</h2>
+    <p class="lead">Violet leads. Charcoal carries the words. Neutrals hold the room. Click any swatch to copy its hex.</p>
+
+    <h3>Roles</h3>
+    <div class="grid g3" style="margin-top:8px;">
+      <div class="card">
+        <div class="role-row">
+          <div class="role-chips"><div class="role-chip" style="background:var(--primary);"></div></div>
+          <div>
+            <strong>Primary: violet</strong>
+            <div class="muted" style="font-size:13px;">Primary actions, accents, links. Hover shifts to <code>#7C3AED</code>.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="role-row">
+          <div class="role-chips">
+            <div class="role-chip" style="background:var(--ink);"></div>
+            <div class="role-chip" style="background:var(--gray-700);"></div>
+          </div>
+          <div>
+            <strong>Secondary: charcoal</strong>
+            <div class="muted" style="font-size:13px;">The typeface and UI text color.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="role-row">
+          <div class="role-chips">
+            <div class="role-chip ringed" style="background:var(--white);"></div>
+            <div class="role-chip" style="background:var(--gray-100);"></div>
+          </div>
+          <div>
+            <strong>Neutrals</strong>
+            <div class="muted" style="font-size:13px;">Backgrounds and borders.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Primary: violet</h3>
+    <div class="swatches" id="primary-swatches"></div>
+
+    <h3>Violet ramp</h3>
+    <div class="swatches" id="ramp-swatches"></div>
+
+    <h3>Secondary: charcoal</h3>
+    <div class="swatches" id="secondary-swatches"></div>
+
+    <h3>Neutrals</h3>
+    <div class="swatches" id="neutral-swatches"></div>
+
+    <h3>Functional states</h3>
+    <div class="swatches" id="functional-swatches"></div>
+    <p class="microcopy">Functional UI states only, for system feedback (success, warning, error/delete). The brand palette stays violet plus charcoal. No blue.</p>
+
+    <div class="note">
+      Usage: violet is for primary actions and accents, not large flood fills. Charcoal (ink) is for text. Keep backgrounds neutral (white and grays) so the violet stays loud. For website and app, keep to the violet primary plus one or two accents for consistency. The fuller violet ramp is available for social media flexibility.
+    </div>
+  </div>
+</section>
+
+<!-- 6. Typography -->
+<section id="type">
+  <div class="wrap">
+    <p class="eyebrow">06 / Type</p>
+    <h2>Typography</h2>
+    <p class="lead">Inter for everything. JetBrains Mono for code and tokens. Nothing else.</p>
+
+    <h3>Typefaces</h3>
+    <div class="card">
+      <div class="fontrole">
+        <div class="sample">Inter, everything</div>
+        <div class="stack">'Inter', system-ui, sans-serif &middot; 400 / 500 / 600 / 700 / 800 / 900</div>
+      </div>
+      <div class="fontrole">
+        <div class="sample mono">JetBrains Mono, code and tokens</div>
+        <div class="stack">'JetBrains Mono', ui-monospace, monospace &middot; 400 / 500 &middot; hex codes, tokens, code-like text only</div>
+      </div>
+    </div>
+    <div class="note">
+      Inter is the brand typeface going forward. It loads from Google Fonts with <code>display=swap</code>, and the system stack (<code>system-ui, sans-serif</code>) is the no-web-font fallback, so the page degrades gracefully offline.
+    </div>
+
+    <h3>Weights</h3>
+    <div class="weights">
+      <div style="font-weight:900;">900 Hero</div>
+      <div style="font-weight:900;">900 Wordmark</div>
+      <div style="font-weight:700;">700 Heads</div>
+      <div style="font-weight:600;">600 Labels</div>
+      <div style="font-weight:400;">400 Body</div>
+    </div>
+    <p class="microcopy">The logo wordmark is treated distinctly from Inter headings (heavier weight, tighter spacing) to keep it out of the body hierarchy.</p>
+
+    <h3>Specimens</h3>
+    <div class="card" style="margin-top:8px;">
+      <div class="spec">
+        <div class="demo" style="font-size:60px;font-weight:900;line-height:1.0;letter-spacing:-0.025em;">Turn your network into deals.</div>
+        <div class="spec-meta">Hero H1 &middot; 60px / 900 / line-height 1.0 / letter-spacing -1.5px</div>
+      </div>
+      <div class="spec">
+        <div class="demo" style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:var(--primary-dark);">Brand Guidelines</div>
+        <div class="spec-meta">Eyebrow &middot; 12px / 600 / uppercase / letter-spacing +1.2px / var(--primary-dark) on light, var(--primary-light) on dark</div>
+      </div>
+      <div class="spec">
+        <div class="demo" style="font-size:36px;font-weight:700;letter-spacing:-0.02em;">Section heading</div>
+        <div class="spec-meta">Section H2 &middot; 36px / 700 / letter-spacing -0.02em / var(--ink)</div>
+      </div>
+      <div class="spec">
+        <div class="demo" style="font-size:20px;font-weight:700;letter-spacing:-0.01em;">Subsection heading</div>
+        <div class="spec-meta">H3 &middot; 20px / 700 / letter-spacing -0.01em / var(--ink)</div>
+      </div>
+      <div class="spec">
+        <div class="demo" style="font-size:16px;font-weight:400;line-height:1.5;">ListLab replaces copy-paste outreach with structured listings and private matching, so members reach the right buyer directly.</div>
+        <div class="spec-meta">Body &middot; 16px / 400 / line-height 1.5 / var(--ink)</div>
+      </div>
+      <div class="spec">
+        <div class="demo" style="font-size:13px;font-weight:400;color:var(--gray-500);">Caption. Free to join. First in, first found.</div>
+        <div class="spec-meta">Caption &middot; 13px / 400 / var(--gray-500)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Components -->
+<section id="components" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">07 / Components</p>
+    <h2>Buttons and components</h2>
+    <p class="lead">One clear primary per view. Everything else steps back.</p>
+
+    <div class="grid g2" style="margin-top:32px;">
+      <div class="card">
+        <h3 style="margin-top:0;">Buttons</h3>
+        <div class="btn-row">
+          <button class="btn btn-primary">Claim your handle</button>
+          <button class="btn btn-secondary">Sign up free</button>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>New listing</button>
+          <button class="btn btn-danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>Delete listing</button>
+        </div>
+        <p class="microcopy">Primary: violet bg, white text, 10px radius, hover to var(--primary-dark). Secondary: outline. Both show a focus ring on keyboard focus. Try hovering and tabbing to them. Icon-plus-text variants use a 16px leading icon in currentColor. Destructive actions use the error red.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">Sign-up field</h3>
+        <form class="signup" onsubmit="return false;">
+          <label class="handle-field">
+            <span>@</span>
+            <input type="text" placeholder="handle" aria-label="Your handle">
+          </label>
+          <button class="btn btn-primary" type="submit">Claim your handle</button>
+        </form>
+        <p class="microcopy">Free to join. First in, first found.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3 style="margin-top:0;">Spacing</h3>
+      <div class="space-row">
+        <div class="space-item"><div class="space-block" style="width:4px;height:24px;"></div><div class="tok">4</div></div>
+        <div class="space-item"><div class="space-block" style="width:8px;height:24px;"></div><div class="tok">8</div></div>
+        <div class="space-item"><div class="space-block" style="width:16px;height:24px;"></div><div class="tok">16</div></div>
+        <div class="space-item"><div class="space-block" style="width:24px;height:24px;"></div><div class="tok">24</div></div>
+        <div class="space-item"><div class="space-block" style="width:32px;height:24px;"></div><div class="tok">32</div></div>
+        <div class="space-item"><div class="space-block" style="width:48px;height:24px;"></div><div class="tok">48</div></div>
+        <div class="space-item"><div class="space-block" style="width:64px;height:24px;"></div><div class="tok">64</div></div>
+      </div>
+      <p class="microcopy">8px base scale. Use these steps for padding and gaps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Voice -->
+<section id="voice">
+  <div class="wrap">
+    <p class="eyebrow">08 / Voice (most important)</p>
+    <h2>Voice and tone</h2>
+    <p class="lead">Lead with the reader's pain, then the fix. Talk like a sharp person who respects the reader's time.</p>
+
+    <div class="grid g2" style="margin-top:32px;">
+      <div class="card">
+        <h3 style="margin-top:0;">Principles</h3>
+        <ul style="margin:0;padding-left:18px;color:var(--gray-700);">
+          <li>Lead with the reader's pain, then the fix.</li>
+          <li>Conversational and senior. Let the reader breathe.</li>
+          <li>No em dashes. Use commas, periods, or parentheses (per the Go-Live ticket voice guardrails: "no buzzwords, no em dashes, conversational").</li>
+          <li>No buzzwords. Say the plain thing.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;">Calls to action</h3>
+        <div class="btn-row">
+          <button class="btn btn-primary">Claim your handle</button>
+          <button class="btn btn-secondary">Sign up free</button>
+        </div>
+        <p class="microcopy">Primary CTA is always "Claim your handle." Secondary is "Sign up free."</p>
+      </div>
+    </div>
+
+    <h3>Taglines</h3>
+    <p class="muted" style="margin:0;">Primary tagline:</p>
+    <p style="font-size:24px;font-weight:800;letter-spacing:-0.01em;color:var(--ink);margin:6px 0 0;">Turn your network into deals.</p>
+    <p class="muted" style="margin:20px 0 0;">Rotation (use when you need variety):</p>
+    <ul class="rotation">
+      <li>Say it once. Reach the right buyer.</li>
+      <li>Your buyer list, finally out of your head.</li>
+      <li>Stop posting. Start closing.</li>
+    </ul>
+
+    <h3>Dos and don'ts</h3>
+    <p class="muted" style="margin:0;">Same message, on-brand voice. Lead with the reader's pain, then the fix.</p>
+    <div class="wrap-table">
+      <table class="voice">
+        <thead>
+          <tr><th>Don't write this</th><th>Write this instead</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bad">Leverage our ecosystem to synergize with stakeholders.</td>
+            <td class="good">Reach the right buyer without the noise.</td>
+          </tr>
+          <tr>
+            <td class="bad">Utilize the platform to spin up your network presence.</td>
+            <td class="good">Get your listings in front of people who actually buy.</td>
+          </tr>
+          <tr>
+            <td class="bad">A next-generation solution empowering users to unlock value.</td>
+            <td class="good">Your buyer list, finally out of your head.</td>
+          </tr>
+          <tr>
+            <td class="bad">Reach out to circle back and hedge against churn.</td>
+            <td class="good">Stop posting. Start closing.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Buzzwords to avoid (examples)</h3>
+    <p class="muted" style="margin:0;font-size:14px;">The documented rule is simply: no buzzwords. These are common offenders.</p>
+    <div class="chips">
+      <span class="chip-word">leverage (verb)</span>
+      <span class="chip-word">synergy</span>
+      <span class="chip-word">ecosystem</span>
+      <span class="chip-word">stakeholders</span>
+      <span class="chip-word">spin up</span>
+      <span class="chip-word">utilize</span>
+      <span class="chip-word">reach out</span>
+      <span class="chip-word">moonshot</span>
+      <span class="chip-word">hedge</span>
+    </div>
+
+    <h3>Boilerplate</h3>
+    <p class="boiler">ListLab is a platform for independent dealers, brokers, and investors who move assets through private relationships. It replaces copy-paste outreach and public listings with structured listings, standing searches, and private matching, so members reach the right buyer or seller directly and close more of the deals already in their network.</p>
+  </div>
+</section>
+
+<!-- 9. Motion -->
+<section id="motion">
+  <div class="wrap">
+    <p class="eyebrow">09 / Motion</p>
+    <h2>Motion</h2>
+    <p class="lead">Subtle and fast. Motion supports clarity, never decoration.</p>
+    <div class="grid g2" style="margin-top:32px;">
+      <div class="card">
+        <ul style="margin:0;padding-left:18px;color:var(--gray-700);">
+          <li>Duration: 150ms to 200ms.</li>
+          <li>Easing: ease-out.</li>
+          <li>Move a little, not a lot (a few pixels, a soft fade).</li>
+          <li>Respect reduced-motion preferences.</li>
+        </ul>
+      </div>
+      <div class="card" style="display:flex;align-items:center;justify-content:center;">
+        <div class="motion-demo">Hover me (175ms ease-out)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="mark on-dark" width="150" height="30" role="img" aria-label="ListLab logo"><use href="#ll-logo"/></svg>
+      <div class="ftag">ListLab. Turn your network into deals.</div>
+    </div>
+    <address>
+      1968 S. Coast Hwy #2253<br>
+      Laguna Beach, CA 92651
+    </address>
+  </div>
+</footer>
+
+<div id="toast">Copied</div>
+
+<script>
+  // Color data
+  var colors = {
+    'primary-swatches': [
+      ['Primary', '#8B5CF6'], ['Primary dark', '#7C3AED'],
+      ['Primary light', '#A78BFA'], ['Accent', '#C084FC']
+    ],
+    'ramp-swatches': [
+      ['Violet 50','#F5F3FF'],['Violet 100','#EDE9FE'],['Violet 200','#DDD6FE'],
+      ['Violet 300','#C4B5FD'],['Violet 400','#A78BFA'],['Violet 500','#8B5CF6'],
+      ['Violet 600','#7C3AED'],['Violet 700','#6D28D9'],['Violet 800','#5B21B6'],
+      ['Violet 900','#4C1D95']
+    ],
+    'secondary-swatches': [
+      ['Ink','#111827'],['Gray 700','#374151']
+    ],
+    'neutral-swatches': [
+      ['Gray 500','#6B7280'],['Gray 300','#D1D5DB'],['Gray 100','#F3F4F6'],
+      ['Gray 50','#F9FAFB'],['White','#FFFFFF'],['Black','#000000']
+    ],
+    'functional-swatches': [
+      ['Success','#16A34A'],['Warning','#F59E0B'],['Error / Delete','#DC2626']
+    ]
+  };
+
+  function needsRing(hex) {
+    var h = hex.toUpperCase();
+    return h === '#FFFFFF' || h === '#F9FAFB' || h === '#F3F4F6' || h === '#F5F3FF';
+  }
+
+  Object.keys(colors).forEach(function(id) {
+    var host = document.getElementById(id);
+    if (!host) return;
+    colors[id].forEach(function(c) {
+      var name = c[0], hex = c[1];
+      var btn = document.createElement('button');
+      btn.className = 'swatch';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Copy ' + name + ' ' + hex);
+      var chip = document.createElement('div');
+      chip.className = 'chip' + (needsRing(hex) ? ' ring' : '');
+      chip.style.background = hex;
+      var meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.innerHTML = '<div class="name">' + name + '</div><div class="hex">' + hex + '</div>';
+      btn.appendChild(chip);
+      btn.appendChild(meta);
+      btn.addEventListener('click', function() { copyHex(hex); });
+      host.appendChild(btn);
+    });
+  });
+
+  var toastTimer;
+  function copyHex(hex) {
+    var done = function() {
+      var t = document.getElementById('toast');
+      t.textContent = 'Copied ' + hex;
+      t.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function() { t.classList.remove('show'); }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(hex).then(done, function() { fallbackCopy(hex, done); });
+    } else {
+      fallbackCopy(hex, done);
+    }
+  }
+  function fallbackCopy(text, cb) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    cb();
+  }
+
+  // Active-section highlight on scroll
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav#menu a'));
+  var sections = navLinks.map(function(a) {
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          navLinks.forEach(function(a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s) { observer.observe(s); });
+  }
+
+  // Close mobile menu after clicking a link
+  navLinks.forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('menu').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
+
+</body></html>

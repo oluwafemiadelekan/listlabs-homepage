@@ -20,6 +20,42 @@ const LENIS_OPTIONS = {
 const EXPO_OUT = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
 /**
+ * Every page starts at the top. Browsers restore the old scroll position on reload, on back and
+ * forward, and when a page comes back from the back-forward cache; Lenis then carries on from that
+ * restored spot. We take scroll restoration over and reset to the top, unless the URL has a #section,
+ * in which case we glide to it.
+ */
+function StartAtTop() {
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  }, []);
+
+  useEffect(() => {
+    const reset = () => {
+      const target = location.hash ? document.querySelector<HTMLElement>(location.hash) : null;
+      if (target) {
+        lenis?.scrollTo(0, { immediate: true, force: true });
+        window.scrollTo(0, 0);
+        window.setTimeout(() => lenis?.scrollTo(target, { offset: -72, duration: 1.3, easing: EXPO_OUT, force: true }), 120);
+        return;
+      }
+      window.scrollTo(0, 0);
+      lenis?.scrollTo(0, { immediate: true, force: true });
+    };
+    reset();
+    const onShow = (e: PageTransitionEvent) => {
+      if (e.persisted) reset();
+    };
+    window.addEventListener("pageshow", onShow);
+    return () => window.removeEventListener("pageshow", onShow);
+  }, [lenis]);
+
+  return null;
+}
+
+/**
  * Every in-page anchor scrolls through Lenis with an eased duration.
  * Nothing on the page jumps.
  */
@@ -80,6 +116,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   if (reduced) {
     return (
       <>
+        <StartAtTop />
         <AnchorScroll />
         {children}
       </>
@@ -88,6 +125,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
   return (
     <ReactLenis root ref={lenisRef} options={LENIS_OPTIONS}>
+      <StartAtTop />
       <AnchorScroll />
       {children}
     </ReactLenis>

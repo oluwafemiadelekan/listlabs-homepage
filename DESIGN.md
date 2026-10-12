@@ -115,7 +115,7 @@ The same page ships in two versions for review. Layout, content and motion are i
 | Palette | Plum, lavender, muted violet on pale cool grey | The client's original guide: violet #8B5CF6, charcoal #111827, greys, white |
 | Primary button | Ink pill with a white arrow circle | Violet, 10px corners, no arrow |
 | Corners | Cards 26px, panels 30px, cells up to 34px, fields and chips are pills | Cards 12px, panels 14px, cells 8 to 12px, fields 12px, chips 6px |
-| Listing cards | Photo and details are two blocks, 4px apart | Photo and details join into one card |
+| Photo-plus-text cards (listing, feature, blog) | Photo and text are two blocks, 4px apart | Photo and text join into one card (side by side on the featured post) |
 
 Version B is a token override in `site/src/app/globals.css` under `:root:has([data-variant="b"])`, so overlays
 are themed too. Components use radius roles (`rounded-card`, `rounded-panel`, `rounded-tile`, `rounded-inner`,

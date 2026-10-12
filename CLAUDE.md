@@ -44,7 +44,8 @@ Dynamic routes read params inside `<Suspense>` (Cache Components requirement).
 `/` is Version A (rounded, plum, arrow buttons). `/b` is Version B (client's original colours, tighter corners,
 no arrows). Both render `site/src/components/home/HomePage.tsx`; B is a token override in `globals.css`
 (`:root:has([data-variant="b"])`). Use radius and colour role classes, never raw radii or hex, so every change
-lands in both. Whatever is fixed in one version is fixed in both.
+lands in both. Whatever is fixed in one version is fixed in both. Every photo-plus-text card carries the `lc`, `lc-photo`, `lc-body`
+classes so Version B joins it; add them to any new card of that kind.
 
 ## Keep the guides in sync
 

@@ -40,8 +40,8 @@ export const POSTS: Post[] = [
     category: "Product",
     date: "September 29, 2026",
     read: "3 min read",
-    image: "/images/handshake.jpg",
-    alt: "Two business partners shaking hands across a table",
+    image: "/images/talk.jpg",
+    alt: "Two women talking at a meeting table in front of a brick wall",
     position: "50% 50%",
     body: [
       { p: "Every listing has one setting that matters more than the rest: who can see it. There are five, and you can change it any time." },
@@ -74,8 +74,8 @@ export const POSTS: Post[] = [
     category: "Product",
     date: "September 15, 2026",
     read: "2 min read",
-    image: "/images/phone.jpg",
-    alt: "Hands holding a phone and photographing items on a table",
+    image: "/images/notify.jpg",
+    alt: "A man reading his phone beside a cup of coffee",
     position: "50% 50%",
     body: [
       { p: "Posting what you want tells everyone what you will pay for. Asking around takes days and depends on who you happen to call." },

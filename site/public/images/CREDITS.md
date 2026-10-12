@@ -32,3 +32,7 @@
 - handshake.jpg: "Business partners shake hands, making a deal", Unsplash (Unsplash License), https://unsplash.com/photos/business-partners-shake-hands-making-a-deal-6-iunIrJtbQ
 - meeting.jpg: "a couple of men shaking hands over a desk", Unsplash (Unsplash License), https://unsplash.com/photos/a-couple-of-men-shaking-hands-over-a-desk-MA4aW8ZOzLM
 - diner.jpg: "Two people eating at a restaurant table", Unsplash (Unsplash License), https://unsplash.com/photos/two-people-eating-at-a-restaurant-table-XOYwp264vGk
+- owner.jpg: "A smiling couple holds an "open" sign", Unsplash (Unsplash License), https://unsplash.com/photos/a-smiling-couple-holds-an-open-sign-oZDtj3UGI88
+- laptop.jpg: "A person sitting at a table using a laptop computer", Unsplash (Unsplash License), https://unsplash.com/photos/a-person-sitting-at-a-table-using-a-laptop-computer-VSyr_MbH7Q4
+- notify.jpg: "A man sitting at a table using a cell phone", Unsplash (Unsplash License), https://unsplash.com/photos/a-man-sitting-at-a-table-using-a-cell-phone-0HkO6NfXsqw
+- talk.jpg: "two women sitting on leather chairs in front of table", Unsplash (Unsplash License), https://unsplash.com/photos/two-women-sitting-on-leather-chairs-in-front-of-table-K0c8ko3e6AA

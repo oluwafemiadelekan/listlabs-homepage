@@ -5,10 +5,11 @@ import { POSTS, type Post } from "@/lib/blog";
 import { BRAND } from "@/lib/brand";
 import { cn } from "@/lib/cn";
 
-function Meta({ post, className }: { post: Post; className?: string }) {
+/** Category, date and read time. On a white card the category chip takes the page tint so its edge, not its text, lines up with the title. */
+function Meta({ post, className, onCard = false }: { post: Post; className?: string; onCard?: boolean }) {
   return (
     <p className={cn("flex flex-wrap items-center gap-x-2 text-[13px] text-muted", className)}>
-      <span className="rounded-chip bg-paper px-2.5 py-0.5 font-medium text-ink-soft">{post.category}</span>
+      <span className={cn("rounded-chip px-2.5 py-0.5 font-medium text-ink-soft", onCard ? "bg-cream" : "bg-paper")}>{post.category}</span>
       <span>{post.date}</span>
       <span aria-hidden="true">·</span>
       <span>{post.read}</span>
@@ -19,8 +20,8 @@ function Meta({ post, className }: { post: Post; className?: string }) {
 /** A post card: photo block, then the words in a white block 4px below. The whole card is the link. */
 function PostCard({ post, base, featured = false }: { post: Post; base: string; featured?: boolean }) {
   return (
-    <a href={`${base}/blog/${post.slug}`} className={cn("group/post grid h-full gap-[4px]", featured && "lg:grid-cols-[1.3fr_1fr]")}>
-      <div className={cn("relative overflow-hidden rounded-card bg-plum", featured ? "min-h-[300px] lg:min-h-[440px]" : "aspect-[4/3]")}>
+    <a href={`${base}/blog/${post.slug}`} className={cn("lc group/post grid h-full w-full gap-[4px]", featured && "lc-h lg:grid-cols-[1.3fr_1fr]")}>
+      <div className={cn("lc-photo relative overflow-hidden rounded-card bg-plum", featured ? "min-h-[300px] lg:min-h-[440px]" : "aspect-[4/3]")}>
         <Image
           src={post.image}
           alt={post.alt}
@@ -30,8 +31,8 @@ function PostCard({ post, base, featured = false }: { post: Post; base: string; 
           style={{ objectPosition: post.position }}
         />
       </div>
-      <div className={cn("flex flex-col rounded-card bg-paper p-6 transition-colors duration-[300ms] ease-out group-hover/post:bg-white", featured && "justify-between gap-10 sm:p-8")}>
-        <Meta post={post} />
+      <div className={cn("lc-body flex flex-col rounded-card bg-paper p-6 transition-colors duration-[300ms] ease-out group-hover/post:bg-white", featured && "justify-between gap-10 sm:p-8")}>
+        <Meta post={post} onCard />
         <div className={featured ? "" : "mt-4"}>
           <h2 className={cn("font-medium tracking-[-0.025em]", featured ? "t-h2" : "text-[20px] leading-[1.2]")}>{post.title}</h2>
           <p className={cn("mt-3 text-ink-soft", featured ? "t-body max-w-[42ch]" : "text-[14px] leading-[1.5]")}>{post.dek}</p>

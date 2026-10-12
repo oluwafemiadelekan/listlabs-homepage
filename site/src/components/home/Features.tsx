@@ -6,9 +6,9 @@ import { cn } from "@/lib/cn";
 type F = { title: string; body: string; poster: string; alt: string; position?: string };
 
 const FEATURES: F[] = [
-  { title: "Public profiles", body: "Your handle is how people find you. Your profile holds the listings, the history, and the work.", poster: "/images/guitar.jpg", alt: "Two vintage Gibson Les Paul guitars hanging on a wall", position: "50% 60%" },
+  { title: "Public profiles", body: "Your handle is how people find you. Your profile holds the listings, the history, and the work.", poster: "/images/owner.jpg", alt: "Two shop owners smiling behind a sign that says they are open", position: "50% 35%" },
   { title: "A feed uniquely your own", body: `No one sees everything on ${BRAND.name}. You see what you've earned access to.`, poster: "/images/camera.jpg", alt: "A silver Leica M3 camera", position: "55% 50%" },
-  { title: "Widgets and sites", body: "Drop your listings on a site you already run. They update when you change them.", poster: "/images/shop.jpg", alt: "A bakery interior with glass display cases" },
+  { title: "Widgets and sites", body: "Drop your listings on a site you already run. They update when you change them.", poster: "/images/laptop.jpg", alt: "Hands typing on a laptop open to a small business website" },
   { title: "Cross-promotion", body: "Share someone else's listing with your people. They opt in. You both get the introduction.", poster: "/images/fair.jpg", alt: "A busy exhibition hall with rows of booths and visitors" },
 ];
 
@@ -18,8 +18,8 @@ const FEATURES: F[] = [
  */
 function Tile({ f, className, children, tall = false }: { f: F; className?: string; children?: React.ReactNode; tall?: boolean }) {
   return (
-    <figure className={cn("group/tile m-0 flex h-full flex-col gap-[4px]", className)}>
-      <div className={cn("relative flex-1 overflow-hidden rounded-card bg-plum", tall ? "min-h-[360px]" : "min-h-[220px]")}>
+    <figure className={cn("lc group/tile m-0 flex h-full flex-col gap-[4px]", className)}>
+      <div className={cn("lc-photo relative flex-1 overflow-hidden rounded-card bg-plum", tall ? "min-h-[360px]" : "min-h-[220px]")}>
         <Image
           src={f.poster}
           alt={f.alt}
@@ -30,7 +30,7 @@ function Tile({ f, className, children, tall = false }: { f: F; className?: stri
         />
         {children}
       </div>
-      <figcaption className="rounded-card bg-paper p-5">
+      <figcaption className="lc-body rounded-card bg-paper p-5">
         <h3 className="t-h3">{f.title}</h3>
         <p className="mt-1.5 max-w-[40ch] text-[13px] leading-[1.45] text-ink-soft">{f.body}</p>
       </figcaption>

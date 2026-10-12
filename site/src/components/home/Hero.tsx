@@ -35,7 +35,7 @@ export function Hero() {
           photos={[
             { src: "/images/carshow.jpg", alt: "Three restored classic cars with their hoods up at a car show", position: "40% 80%", price: "$210,000", title: "Three Bel Airs, sold as a set", place: "Fresno, CA" },
             { src: "/images/waterfront.jpg", alt: "Modern apartment buildings around a waterfront square", position: "50% 55%", price: "$14.8M", title: "Harbour District mixed-use redevelopment", place: "Portland, OR" },
-            { src: "/images/hotel.jpg", alt: "The ornate facade of a grand hotel", position: "50% 85%", price: "$5.0M", title: "Mezzanine note, hospitality portfolio", place: "Location not specified" },
+            { src: "/images/cafe.jpg", alt: "A café counter with a coffee machine and a ticket display", position: "50% 50%", price: "$420K", title: "Neighbourhood café, two sites", place: "Seattle, WA" },
           ]}
         />
 

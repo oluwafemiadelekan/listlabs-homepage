@@ -262,6 +262,11 @@
 :root:has([data-variant="b"]) .lc { gap: 0; }
 :root:has([data-variant="b"]) .lc-photo { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
 :root:has([data-variant="b"]) .lc-body { border-top-left-radius: 0; border-top-right-radius: 0; }
+/* Cards that sit side by side on desktop (the featured blog post) join along the vertical edge instead. */
+@media (min-width: 1024px) {
+  :root:has([data-variant="b"]) .lc-h .lc-photo { border-radius: var(--r-card) 0 0 var(--r-card); }
+  :root:has([data-variant="b"]) .lc-h .lc-body { border-radius: 0 var(--r-card) var(--r-card) 0; }
+}
 :root:has([data-variant="b"]) .btn-has-arrow { padding-right: var(--btn-pad); }
 
 @media (prefers-reduced-motion: reduce) {

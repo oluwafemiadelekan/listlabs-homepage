@@ -71,7 +71,7 @@ export function Header() {
             <ul className="m-0 flex list-none flex-col gap-1 rounded-card bg-paper p-2 shadow-float">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} onClick={() => setOpen(false)} className="block rounded-[18px] px-4 py-3 text-[16px] transition-colors duration-[200ms] hover:bg-sand">
+                  <a href={l.href} onClick={() => setOpen(false)} className="block rounded-inner px-4 py-3 text-[16px] transition-colors duration-[200ms] hover:bg-sand">
                     {l.label}
                   </a>
                 </li>

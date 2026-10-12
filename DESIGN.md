@@ -92,6 +92,22 @@ components:
 
 # ListLabs homepage design system
 
+## Two versions
+
+The same page ships in two versions for review. Layout, content and motion are identical; only tokens differ.
+
+| | Version A (`/`) | Version B (`/b`) |
+| --- | --- | --- |
+| Palette | Plum, lavender, muted violet on pale cool grey | The client's original guide: violet #8B5CF6, charcoal #111827, greys, white |
+| Primary button | Ink pill with a white arrow circle | Violet, 10px corners, no arrow |
+| Corners | Cards 26px, panels 30px, cells up to 34px, fields and chips are pills | Cards 12px, panels 14px, cells 8 to 12px, fields 12px, chips 6px |
+
+Version B is a token override in `site/src/app/globals.css` under `:root:has([data-variant="b"])`, so overlays
+are themed too. Components use radius roles (`rounded-card`, `rounded-panel`, `rounded-tile`, `rounded-inner`,
+`rounded-chip`, `rounded-btn`, `rounded-field`, `rounded-cell`) and colour roles (`--btn-bg`, `--wash-from`, `--scrim`),
+never raw values, so any change lands in both versions. A small "Version A / Version B" switch sits bottom right
+for review; it is not part of the design.
+
 ## Overview
 
 The layout follows a photographer landing page closely: a quiet header, a two-line headline beside the handle claim,
@@ -129,9 +145,10 @@ your listings, uses bento, features gallery, how it works, try it, close, footer
 
 ## Shapes
 
-- Photo strip: desktop is a 14-unit grid, three rows of cells. Each photo is one continuous image cut into rounded cells,
-  alternating squares (2x2 units) and wide rectangles (4x2 units). Cells are 4px apart. On mobile the middle photo
-  alone fills the rest of the screen, cut wide / square, square / wide. The cut is drawn with a
+- Photo strip: a 14-column grid, three rows. Rows 1 and 2 are three continuous photos cut into rounded squares and
+  wide rectangles. Row 3 is five separate products, each with a white chip holding its price and one fact, their edges
+  aligned with the photo columns above. Mobile: the middle photo over two products.
+- No image appears twice anywhere on the page. Credits live in `site/public/images/CREDITS.md`. The cut is drawn with a
   page-coloured ring around each cell, so the photo itself is never distorted.
 - Cards and tiles: 26px radius, 4px apart. Neighbouring tiles read as one cut-up shape.
 - Gallery title: a plum tab cut into the corner of the first photo, with a 4px page-coloured ring and
@@ -145,7 +162,9 @@ your listings, uses bento, features gallery, how it works, try it, close, footer
 - Use tile: whole tile is a link to its audience page. Visibility option at the top, title, copy, audience name at the bottom.
 - Your listings: the example cards sit in a lavender frame titled "Your listings" with a count per visibility level,
   because only a lister's own view would show Private and Unlisted listings.
-- Listing card: the whole card is a button. Modelled on the client's product card. Photo block with an asset-type pill, then a white block 4px below:
+- Listing card: the whole card is a button. Fixed rows so cards line up: price, a title clamped to two lines (space
+  reserved for two from 640px up), one-line location, two stats on every card, and a visibility footer under a hairline.
+  On mobile the cards sit 16px apart inside the frame. Modelled on the client's product card. Photo block with an asset-type pill, then a white block 4px below:
   price, title, location, up to two stats in page-grey cells, and the visibility level it uses (violet icon, level, who).
   No lister names (the brief bans named people on the homepage).
 - Listing details: a dialog over a dimmed plum backdrop (a bottom sheet on mobile). Photo block, facts block,
@@ -156,7 +175,10 @@ your listings, uses bento, features gallery, how it works, try it, close, footer
   beside the steps on desktop. The "I'm listing" field opens it with the draft carried over. Escape closes it.
 - Feature tile: photo block standing in for the product clip, and a plain white block 4px below with the title and one line.
   No overlay, no fade.
-- Steps: numbered pill rows. A rounded tile floats beside the active row and glides between rows on a spring.
+- Steps: the section note sits directly under the heading. Numbered rows; the active row's top and bottom lines
+  thicken and carry a soft highlight that travels left to right, leading to the details. Step two spells out the
+  five levels as rows: level on the left, who it reaches on the right. Step three's tile is a promote graphic.
+  Previously: numbered pill rows. A rounded tile floats beside the active row and glides between rows on a spring.
   Step two's tile is the visibility field: you at the centre, people lighting outward from Private to Public.
 
 ## Do's and Don'ts

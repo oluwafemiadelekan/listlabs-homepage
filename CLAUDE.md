@@ -32,6 +32,13 @@ that you list what you have and choose who sees it.
 - No em dashes. No "Turn your network into deals" H1. No "Not another marketplace" headline. Never call ListLabs "a page".
   No named example people. No compliance or AI features.
 
+## Two versions
+
+`/` is Version A (rounded, plum, arrow buttons). `/b` is Version B (client's original colours, tighter corners,
+no arrows). Both render `site/src/components/home/HomePage.tsx`; B is a token override in `globals.css`
+(`:root:has([data-variant="b"])`). Use radius and colour role classes, never raw radii or hex, so every change
+lands in both. Whatever is fixed in one version is fixed in both.
+
 ## Keep the guides in sync
 
 Any change to colour, type, buttons, fields, tiles or motion updates three places in the same commit:
@@ -48,7 +55,9 @@ including its "What changed" table). A guide that describes an older design is a
 - Tiles sit 4px apart with large radii so neighbouring shapes read as one cut-up form.
 - Header plus hero fill exactly one screen. Every later section uses `.section-gap`; never mix paddings.
 - Every claim button and form opens the claim overlay (`site/src/components/claim/ClaimFlow.tsx`).
-- Listing cards are buttons that open the details overlay. Photos never carry text; words go in a block below.
+- Listing cards are buttons that open the details overlay. Photos never carry text; words go in a block below
+  (the only exception is the small price chip on hero products and the asset-type chip).
+- No image appears twice on the page. New photos come from Unsplash or Pexels, credited in CREDITS.md.
 
 ## Motion rules
 

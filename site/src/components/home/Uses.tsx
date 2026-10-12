@@ -35,7 +35,7 @@ export function Uses() {
     <section id="uses" className="section-gap scroll-mt-6">
       <div className="container">
         <RevealGroup className="grid gap-[4px] lg:grid-cols-2">
-          <RevealItem className="flex min-h-[240px] flex-col justify-end rounded-card bg-[linear-gradient(140deg,#f1f0f9_0%,#dcd8ef_100%)] p-7 sm:p-8">
+          <RevealItem className="flex min-h-[240px] flex-col justify-end rounded-card bg-[linear-gradient(140deg,var(--wash-from)_0%,var(--wash-to)_100%)] p-7 sm:p-8">
             <h2 className="t-h2 max-w-[11ch]">Same tool. Different jobs.</h2>
           </RevealItem>
 

@@ -241,7 +241,7 @@ function ClaimOverlay({ initialHandle = "", draft, onClose }: { initialHandle?: 
                   noValidate
                 >
                   {draft && (
-                    <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-pill bg-paper px-3.5 py-1.5 text-[13px] text-ink-soft shadow-[inset_0_0_0_1px_var(--line)]">
+                    <p className="mb-5 inline-flex max-w-full items-center gap-2 rounded-chip bg-paper px-3.5 py-1.5 text-[13px] text-ink-soft shadow-[inset_0_0_0_1px_var(--line)]">
                       <span className="h-1.5 w-1.5 shrink-0 rounded-pill bg-violet" />
                       <span className="truncate">Your draft: &ldquo;{draft}&rdquo;. Claim a handle to keep it.</span>
                     </p>
@@ -250,7 +250,7 @@ function ClaimOverlay({ initialHandle = "", draft, onClose }: { initialHandle?: 
                   <p className="t-body mt-3 text-ink-soft">{BRAND.helper}</p>
                   <div
                     className={cn(
-                      "mt-8 flex h-[60px] items-center gap-1.5 rounded-pill bg-paper px-5 transition-[box-shadow] duration-[260ms] ease-out",
+                      "mt-8 flex h-[60px] items-center gap-1.5 rounded-field bg-paper px-5 transition-[box-shadow] duration-[260ms] ease-out",
                       check.state === "invalid" || check.state === "taken"
                         ? "shadow-[inset_0_0_0_1.5px_var(--error)]"
                         : "shadow-[inset_0_0_0_1px_var(--line-strong)] focus-within:shadow-[inset_0_0_0_1px_var(--violet),0_0_0_5px_var(--accent-ring)]",
@@ -300,7 +300,7 @@ function ClaimOverlay({ initialHandle = "", draft, onClose }: { initialHandle?: 
                             key={s}
                             type="button"
                             onClick={() => setHandle(s)}
-                            className="rounded-pill bg-paper px-3 py-1 text-[13px] text-ink shadow-[inset_0_0_0_1px_var(--line-strong)] transition-colors duration-[200ms] hover:bg-sand"
+                            className="rounded-chip bg-paper px-3 py-1 text-[13px] text-ink shadow-[inset_0_0_0_1px_var(--line-strong)] transition-colors duration-[200ms] hover:bg-sand"
                           >
                             @{s}
                           </button>
@@ -324,7 +324,7 @@ function ClaimOverlay({ initialHandle = "", draft, onClose }: { initialHandle?: 
                 >
                   <h2 id="claim-title" className="t-h1">Where should we send your code?</h2>
                   <p className="t-body mt-3 text-ink-soft">No password. We email a six-digit code each time you sign in.</p>
-                  <label className="mt-8 flex h-[60px] items-center rounded-pill bg-paper px-5 shadow-[inset_0_0_0_1px_var(--line-strong)] transition-[box-shadow] duration-[260ms] ease-out focus-within:shadow-[inset_0_0_0_1px_var(--violet),0_0_0_5px_var(--accent-ring)]">
+                  <label className="mt-8 flex h-[60px] items-center rounded-field bg-paper px-5 shadow-[inset_0_0_0_1px_var(--line-strong)] transition-[box-shadow] duration-[260ms] ease-out focus-within:shadow-[inset_0_0_0_1px_var(--violet),0_0_0_5px_var(--accent-ring)]">
                     <span className="sr-only">Email</span>
                     <input
                       data-autofocus
@@ -495,7 +495,7 @@ function CodeInput({ value, onChange }: { value: string[]; onChange: (v: string[
           onKeyDown={(e) => {
             if (e.key === "Backspace" && !d && i > 0) refs.current[i - 1]?.focus();
           }}
-          className="tnum h-16 w-full min-w-0 max-w-[64px] rounded-[18px] bg-paper text-center text-[24px] font-medium shadow-[inset_0_0_0_1px_var(--line-strong)] outline-none transition-[box-shadow] duration-[240ms] ease-out focus:shadow-[inset_0_0_0_1px_var(--violet),0_0_0_4px_var(--accent-ring)]"
+          className="tnum h-16 w-full min-w-0 max-w-[64px] rounded-inner bg-paper text-center text-[24px] font-medium shadow-[inset_0_0_0_1px_var(--line-strong)] outline-none transition-[box-shadow] duration-[240ms] ease-out focus:shadow-[inset_0_0_0_1px_var(--violet),0_0_0_4px_var(--accent-ring)]"
         />
       ))}
     </div>
@@ -522,7 +522,7 @@ function ProfilePreview({ handle, focus, done }: { handle: string; focus: string
           </div>
           <div className="mt-8 flex flex-wrap gap-1.5">
             {(labels.length ? labels : ["Pick what you move"]).map((l) => (
-              <span key={l} className={cn("rounded-pill px-3 py-1 text-[12px]", labels.length ? "bg-paper/15 text-paper" : "text-paper/45 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2)]")}>
+              <span key={l} className={cn("rounded-pill px-3 py-1 text-[12px]", labels.length ? "bg-paper/15 text-paper" : "text-paper/45 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.22)]")}>
                 {l}
               </span>
             ))}

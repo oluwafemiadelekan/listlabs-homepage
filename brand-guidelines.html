@@ -218,7 +218,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
   <div class="wrap">
     <a class="lockup" href="#top"><svg class="mark" width="22" height="22" style="color:var(--violet)"><use href="#ll"/></svg><b>ListLabs</b></a>
     <nav class="toc" aria-label="Sections">
-      <a href="#changes">What changed</a><a href="#foundation">Foundation</a><a href="#color">Colour</a><a href="#type">Type</a><a href="#logo">Logo</a><a href="#layout">Layout and shape</a><a href="#components">Components</a><a href="#imagery">Imagery</a><a href="#motion">Motion</a><a href="#voice">Voice</a><a href="#rules">Rules</a>
+      <a href="#changes">What changed</a><a href="#versions">Versions</a><a href="#foundation">Foundation</a><a href="#color">Colour</a><a href="#type">Type</a><a href="#logo">Logo</a><a href="#layout">Layout and shape</a><a href="#components">Components</a><a href="#imagery">Imagery</a><a href="#motion">Motion</a><a href="#voice">Voice</a><a href="#rules">Rules</a>
     </nav>
   </div>
 </header>
@@ -228,7 +228,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
   <div class="intro">
     <div>
       <h1>Brand guidelines.<br>The system as built.</h1>
-      <span class="version"><span class="mono">v3.4</span> · October 2026 · Supersedes the client guide for the homepage</span>
+      <span class="version"><span class="mono">v4.0</span> · October 2026 · Supersedes the client guide for the homepage</span>
     </div>
     <p>This guide documents the homepage exactly as it ships in <code>site/</code>. The client's original guide is kept for reference at <code>reference/client-brand-guidelines-original.html</code>. Where the two disagree on visuals, this one wins. Voice and copy rules still come from the client.</p>
   </div>
@@ -255,6 +255,31 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
         </tbody>
       </table>
     </div>
+  </section>
+
+  <!-- Versions -->
+  <section class="s" id="versions">
+    <div class="s-head">
+      <div><span class="num">00b</span><h2>Two versions</h2></div>
+      <p>The team kept this design as Version A and asked to see the client's original colours with softer corners as Version B. Same layout and content; tokens only.</p>
+    </div>
+    <div class="scroll-x">
+      <table>
+        <thead><tr><th></th><th>Version A, at /</th><th>Version B, at /b</th></tr></thead>
+        <tbody>
+          <tr><td>Palette</td><td>Plum <code>#2C2649</code>, lavender <code>#E3E1F1</code>, muted violet <code>#6F5FD0</code>, page <code>#F3F3F6</code></td><td>Violet <code>#8B5CF6</code>, hover <code>#7C3AED</code>, charcoal <code>#111827</code>, grey <code>#E5E7EB</code>, page <code>#F3F4F6</code></td></tr>
+          <tr><td>Primary button</td><td>Ink pill with a white arrow circle</td><td>Violet fill, 10px corners, no arrow</td></tr>
+          <tr><td>Cards and panels</td><td>26px and 30px</td><td>12px and 14px</td></tr>
+          <tr><td>Photo cells</td><td>Up to 34px</td><td>8 to 12px</td></tr>
+          <tr><td>Fields and chips</td><td>Pills</td><td>12px fields, 6px chips</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tiles cols-2" style="margin-top:16px">
+      <div class="tile t-white"><h4 style="font-weight:500">Version A button</h4><div style="margin-top:14px"><button class="btn" type="button">Claim your handle <span class="circle"><svg width="14" height="14"><use href="#arrow"/></svg></span></button></div></div>
+      <div class="tile t-white" style="border-radius:12px"><h4 style="font-weight:500">Version B button</h4><div style="margin-top:14px"><button class="btn plain" type="button" style="background:#8B5CF6;border-radius:10px">Claim your handle</button></div></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:10px">This guide's specimens show Version A. Version B swaps the values in the table and nothing else. Every fix lands in both versions.</p>
   </section>
 
   <!-- Foundation -->
@@ -450,6 +475,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
     <p style="font-size:13px;color:var(--muted);margin-top:10px">One phrase per statement gets the outlined pill. At most one small filled mark. Both are muted violet.</p>
 
     <p class="sub">Steps</p>
+    <p style="font-size:13px;color:var(--muted);margin:0 0 10px">The section note sits directly under "How it works". The active row's lines thicken and a soft highlight travels along them, left to right.</p>
     <ol class="steps">
       <li><span class="n">01</span><span class="t">List it</span><span class="d">Describe what you have. Photos, docs, whatever helps.</span></li>
       <li class="on"><span class="n">02</span><span class="t">Decide who sees it</span><span class="d">Private, Unlisted, Shared, Listed, Public.</span></li>
@@ -483,7 +509,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
       </div>
     </div>
     <div class="tiles cols-3" style="margin-top:4px">
-      <div class="tile t-lav"><h4 style="font-weight:500">The grid</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Desktop: 14 units wide, 3 rows, filling the hero. Squares are 2x2, wide rectangles 4x2. Mobile: one photo, wide / square, square / wide.</p></div>
+      <div class="tile t-lav"><h4 style="font-weight:500">The grid</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">14 columns, 3 rows, filling the hero. Rows 1 and 2: three photos cut into squares and wide rectangles. Row 3: five products with price chips, aligned to the columns above. No image appears twice on the page.</p></div>
       <div class="tile t-lav"><h4 style="font-weight:500">The cut</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Each photo stays one image. A page-coloured ring around each cell draws the gaps, so nothing is distorted.</p></div>
       <div class="tile t-lav"><h4 style="font-weight:500">Words go in blocks</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Text never sits on a photo and there are no fades. The words get their own white block 4px below. Stand-in photos are credited in <code>site/public/images/CREDITS.md</code>.</p></div>
     </div>
@@ -564,7 +590,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
 
 <footer>
   <div class="wrap">
-    <span>ListLabs brand guidelines v3.4. Working name; logo provisional.</span>
+    <span>ListLabs brand guidelines v4.0. Working name; logo provisional.</span>
     <span>Tokens: <code>site/src/app/globals.css</code> · Spec: <code>DESIGN.md</code></span>
   </div>
 </footer>

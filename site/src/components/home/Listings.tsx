@@ -66,7 +66,8 @@ const EXAMPLES: Example[] = [
     image: "/images/truck.jpg",
     alt: "A blue tractor unit pulling two trailers on a mountain road",
     position: "45% 50%",
-    about: "2021-2023 sleeper cabs, full service history, sold as one lot.",
+    stats: [["Units", "18"], ["Model years", "2021 to 2023"]],
+    about: "2021 to 2023 sleeper cabs, full service history, sold as one lot.",
     visibility: "unlisted",
   },
   {
@@ -77,6 +78,8 @@ const EXAMPLES: Example[] = [
     image: "/images/car.jpg",
     alt: "A red 1967 Mustang Fastback in a showroom",
     position: "55% 60%",
+    stats: [["Year", "1967"], ["Body", "Fastback"]],
+    about: "Two owners, matching numbers, kept indoors.",
     visibility: "private",
   },
 ];
@@ -103,7 +106,7 @@ function ListingCard({ l, onOpen }: { l: Example; onOpen: () => void }) {
           className="object-cover transition-transform duration-[900ms] ease-[var(--ease-out-expo)] group-hover/card:scale-[1.05]"
           style={{ objectPosition: l.position }}
         />
-        <span className="absolute left-3 top-3 rounded-pill bg-paper px-3 py-1 text-[12px] font-medium text-ink">{l.asset}</span>
+        <span className="absolute left-3 top-3 rounded-chip bg-paper px-3 py-1 text-[12px] font-medium text-ink">{l.asset}</span>
         <span
           aria-hidden="true"
           className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-pill bg-paper text-ink opacity-0 transition-[opacity,transform] duration-[420ms] ease-[var(--ease-out-expo)] group-hover/card:opacity-100 group-focus-visible/card:opacity-100 [@media(hover:none)]:opacity-100"
@@ -111,27 +114,31 @@ function ListingCard({ l, onOpen }: { l: Example; onOpen: () => void }) {
           <ArrowsOutSimple size={14} weight="bold" />
         </span>
       </div>
-      <div className="flex w-full flex-1 flex-col rounded-card bg-paper p-5 transition-colors duration-[300ms] ease-out group-hover/card:bg-white">
-        <div className="tnum text-[24px] font-medium leading-none tracking-[-0.03em]">{l.price}</div>
-        <div className="mt-2 text-[14px] leading-[1.35] text-ink-soft">{l.title}</div>
-        <div className="mt-2 inline-flex items-center gap-1.5 text-[13px] text-muted">
-          <MapPin size={14} />
-          {l.location}
-        </div>
-        {l.stats && (
+      {/* Fixed rows: price, a two-line title, one-line location, stats, then the visibility footer.
+          Every card shares the same rhythm, so the stats and footers line up across the row. */}
+      <div className="flex w-full flex-1 flex-col rounded-card bg-paper transition-colors duration-[300ms] ease-out group-hover/card:bg-white">
+        <div className="flex flex-1 flex-col p-5">
+          <div className="tnum text-[24px] font-medium leading-none tracking-[-0.03em]">{l.price}</div>
+          <div className="mt-2 line-clamp-2 text-[14px] sm:min-h-[2lh] leading-[1.35] text-ink-soft">{l.title}</div>
+          <div className="mt-2 flex min-w-0 items-center gap-1.5 text-[13px] text-muted">
+            <MapPin size={14} className="shrink-0" />
+            <span className="truncate">{l.location}</span>
+          </div>
           <div className="mt-4 grid grid-cols-2 gap-[4px]">
-            {l.stats.map(([k, val]) => (
-              <div key={k} className="rounded-[14px] bg-cream px-3 py-2.5">
-                <div className="text-[12px] text-muted">{k}</div>
-                <div className="tnum mt-0.5 text-[15px] font-medium">{val}</div>
+            {(l.stats ?? []).map(([k, val]) => (
+              <div key={k} className="min-w-0 rounded-inner bg-cream px-3 py-2.5">
+                <div className="truncate text-[12px] text-muted">{k}</div>
+                <div className="tnum mt-0.5 truncate text-[15px] font-medium">{val}</div>
               </div>
             ))}
           </div>
-        )}
-        <div className="mt-auto flex items-start gap-2 pt-4 text-[13px] leading-[1.4]">
-          <Icon size={15} weight="fill" className="mt-px shrink-0 text-violet" />
-          <span>
-            <span className="font-medium">{v.label}.</span> <span className="text-ink-soft">{v.who}</span>
+        </div>
+        <div className="flex min-w-0 items-center gap-2 border-t border-line px-5 py-3.5 text-[13px]">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-chip bg-violet-soft">
+            <Icon size={13} weight="fill" className="text-violet" />
+          </span>
+          <span className="truncate">
+            <span className="font-medium">{v.label}</span> <span className="text-ink-soft">· {v.who.replace(/\.$/, "")}</span>
           </span>
         </div>
       </div>
@@ -174,7 +181,7 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
       <motion.div
         aria-hidden="true"
         onClick={onClose}
-        className="absolute inset-0 bg-[rgba(31,28,46,0.45)] backdrop-blur-[2px]"
+        className="absolute inset-0 bg-[var(--scrim)] backdrop-blur-[2px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -184,7 +191,7 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="listing-title"
-        className="relative max-h-[92svh] w-full max-w-[980px] overflow-y-auto rounded-t-[30px] bg-cream p-[4px] sm:rounded-[30px]"
+        className="relative max-h-[92svh] w-full max-w-[980px] overflow-y-auto rounded-t-[30px] bg-cream p-[4px] sm:rounded-panel"
         initial={{ opacity: 0, y: 48, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 32, scale: 0.98 }}
@@ -192,14 +199,14 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
       >
         <div className="grid gap-[4px] md:grid-cols-[1.05fr_1fr]">
           {/* Photo */}
-          <div className="relative min-h-[260px] overflow-hidden rounded-[26px] bg-plum md:min-h-[520px]">
+          <div className="relative min-h-[260px] overflow-hidden rounded-card bg-plum md:min-h-[520px]">
             <Image src={l.image} alt={l.alt} fill sizes="(min-width: 768px) 500px, 100vw" className="object-cover" style={{ objectPosition: l.position }} />
-            <span className="absolute left-4 top-4 rounded-pill bg-paper px-3 py-1 text-[12px] font-medium text-ink">{l.asset}</span>
+            <span className="absolute left-4 top-4 rounded-chip bg-paper px-3 py-1 text-[12px] font-medium text-ink">{l.asset}</span>
           </div>
 
           <div className="flex flex-col gap-[4px]">
             {/* Facts */}
-            <div className="relative rounded-[26px] bg-paper p-6">
+            <div className="relative rounded-card bg-paper p-6">
               <button
                 id="listing-close"
                 type="button"
@@ -220,7 +227,7 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
               {l.stats && (
                 <dl className="mt-5 grid grid-cols-2 gap-[4px]">
                   {l.stats.map(([k, val]) => (
-                    <div key={k} className="rounded-[16px] bg-cream px-4 py-3">
+                    <div key={k} className="rounded-inner bg-cream px-4 py-3">
                       <dt className="text-[12px] text-muted">{k}</dt>
                       <dd className="tnum m-0 mt-0.5 text-[17px] font-medium">{val}</dd>
                     </div>
@@ -231,7 +238,7 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
             </div>
 
             {/* Who sees it: change it right here */}
-            <div className="rounded-[26px] bg-paper p-6">
+            <div className="rounded-card bg-paper p-6">
               <div className="text-[14px] font-medium">Who sees it</div>
               <div role="radiogroup" aria-label="Who sees this listing" className="mt-3 grid grid-cols-5 gap-[4px]">
                 {VISIBILITY.map((v) => {
@@ -245,7 +252,7 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
                       aria-checked={on}
                       onClick={() => setLevel(v.key)}
                       className={cn(
-                        "relative isolate flex flex-col items-center gap-1.5 rounded-[16px] px-1 py-3 text-[12px] font-medium transition-colors duration-[300ms] ease-out",
+                        "relative isolate flex flex-col items-center gap-1.5 rounded-inner px-1 py-3 text-[12px] font-medium transition-colors duration-[300ms] ease-out",
                         on ? "text-paper" : "bg-cream text-ink-soft hover:bg-sand",
                       )}
                     >
@@ -253,7 +260,7 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
                         <motion.span
                           layoutId="detail-visibility"
                           aria-hidden="true"
-                          className="absolute inset-0 -z-10 rounded-[16px] bg-plum"
+                          className="absolute inset-0 -z-10 rounded-inner bg-plum"
                           transition={{ duration: 0.45, ease: EASE_OUT_EXPO }}
                         />
                       )}
@@ -278,7 +285,7 @@ function ListingDetails({ l, onClose }: { l: Example; onClose: () => void }) {
             </div>
 
             {/* Act */}
-            <div className="flex flex-1 flex-col justify-end gap-3 rounded-[26px] bg-sand p-6">
+            <div className="flex flex-1 flex-col justify-end gap-3 rounded-card bg-sand p-6">
               <p className="text-[13px] text-ink-soft">A listing like this lives on your handle. {BRAND.helper}</p>
               <Button
                 size="lg"
@@ -318,7 +325,7 @@ export function Listings() {
   return (
     <section aria-labelledby="your-listings" className="section-gap">
       <div className="container">
-        <div className="rounded-[30px] bg-sand p-[4px]">
+        <div className="rounded-panel bg-sand p-2 sm:p-[4px]">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 pb-4 pt-3 sm:px-5">
             <div className="flex items-center gap-3">
               <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-pill bg-plum text-[14px] font-medium text-paper">
@@ -341,8 +348,8 @@ export function Listings() {
                     key={v.key}
                     className={
                       v.n
-                        ? "inline-flex items-center gap-1.5 rounded-pill bg-paper px-3 py-1.5 text-[12px] font-medium text-ink"
-                        : "inline-flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-[12px] text-muted shadow-[inset_0_0_0_1px_var(--line-strong)]"
+                        ? "inline-flex items-center gap-1.5 rounded-chip bg-paper px-3 py-1.5 text-[12px] font-medium text-ink"
+                        : "inline-flex items-center gap-1.5 rounded-chip px-3 py-1.5 text-[12px] text-muted shadow-[inset_0_0_0_1px_var(--line-strong)]"
                     }
                   >
                     <Icon size={13} weight={v.n ? "fill" : "regular"} className={v.n ? "text-violet" : undefined} />
@@ -352,7 +359,7 @@ export function Listings() {
               })}
             </ul>
           </div>
-          <RevealGroup className="grid gap-[4px] sm:grid-cols-2 lg:grid-cols-4">
+          <RevealGroup className="grid gap-4 sm:grid-cols-2 sm:gap-2 xl:grid-cols-4 xl:gap-[4px]">
             {EXAMPLES.map((l, idx) => (
               <RevealItem key={l.title} className="flex">
                 <ListingCard l={l} onOpen={() => setOpenIndex(idx)} />

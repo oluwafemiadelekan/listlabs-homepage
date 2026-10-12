@@ -19,7 +19,7 @@ export function Statement() {
         >
           <p className="t-statement">
             You get a listing, and{" "}
-            <span className="inline-flex translate-y-[-0.06em] items-center gap-1.5 whitespace-nowrap rounded-pill px-3 py-0.5 align-middle text-[0.9em] shadow-[inset_0_0_0_1.5px_var(--violet)]">
+            <span className="inline-flex translate-y-[-0.06em] items-center gap-1.5 whitespace-nowrap rounded-chip px-3 py-0.5 align-middle text-[0.9em] shadow-[inset_0_0_0_1.5px_var(--violet)]">
               <Eye size="0.8em" weight="bold" className="text-violet" />
               you choose who sees it.
             </span>{" "}

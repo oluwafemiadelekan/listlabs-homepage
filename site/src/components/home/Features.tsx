@@ -7,9 +7,9 @@ type F = { title: string; body: string; poster: string; alt: string; position?: 
 
 const FEATURES: F[] = [
   { title: "Public profiles", body: "Your handle is how people find you. Your profile holds the listings, the history, and the work.", poster: "/images/guitar.jpg", alt: "Two vintage Gibson Les Paul guitars hanging on a wall", position: "50% 60%" },
-  { title: "A feed uniquely your own", body: `No one sees everything on ${BRAND.name}. You see what you've earned access to.`, poster: "/images/car.jpg", alt: "A red 1967 Mustang Fastback", position: "40% 60%" },
+  { title: "A feed uniquely your own", body: `No one sees everything on ${BRAND.name}. You see what you've earned access to.`, poster: "/images/camera.jpg", alt: "A silver Leica M3 camera", position: "55% 50%" },
   { title: "Widgets and sites", body: "Drop your listings on a site you already run. They update when you change them.", poster: "/images/shop.jpg", alt: "A bakery interior with glass display cases" },
-  { title: "Cross-promotion", body: "Share someone else's listing with your people. They opt in. You both get the introduction.", poster: "/images/camera.jpg", alt: "A silver Leica M3 camera", position: "55% 50%" },
+  { title: "Cross-promotion", body: "Share someone else's listing with your people. They opt in. You both get the introduction.", poster: "/images/fair.jpg", alt: "A busy exhibition hall with rows of booths and visitors" },
 ];
 
 /**
@@ -49,11 +49,11 @@ export function Features() {
         <RevealGroup className="grid gap-[4px] md:h-[820px] md:grid-cols-3 md:grid-rows-2">
           <RevealItem className="md:row-span-2">
             <Tile f={FEATURES[0]} tall>
-              <div className="absolute left-0 top-0 rounded-br-[30px] bg-cream pb-[4px] pr-[4px]">
-                {/* Inverted corners where the tab meets the photo's edges */}
-                <span aria-hidden="true" className="absolute left-full top-0 h-[26px] w-[26px] bg-[radial-gradient(circle_at_100%_100%,transparent_25.5px,var(--cream)_26px)]" />
-                <span aria-hidden="true" className="absolute left-0 top-full h-[26px] w-[26px] bg-[radial-gradient(circle_at_100%_100%,transparent_25.5px,var(--cream)_26px)]" />
-                <div className="flex min-h-[140px] w-[min(260px,62vw)] items-end rounded-[26px] bg-plum p-6 text-paper">
+              <div className="absolute left-0 top-0 rounded-br-[calc(var(--r-card)+4px)] bg-cream pb-[4px] pr-[4px]">
+                {/* Inverted corners where the tab meets the photo's edges; they follow the card radius */}
+                <span aria-hidden="true" className="absolute left-full top-0 size-[var(--r-card)] bg-[radial-gradient(circle_at_100%_100%,transparent_calc(var(--r-card)-0.5px),var(--cream)_var(--r-card))]" />
+                <span aria-hidden="true" className="absolute left-0 top-full size-[var(--r-card)] bg-[radial-gradient(circle_at_100%_100%,transparent_calc(var(--r-card)-0.5px),var(--cream)_var(--r-card))]" />
+                <div className="flex min-h-[140px] w-[min(260px,62vw)] items-end rounded-card bg-plum p-6 text-paper">
                   <h2 className="t-h2">What you get</h2>
                 </div>
               </div>

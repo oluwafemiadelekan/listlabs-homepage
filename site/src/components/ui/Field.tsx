@@ -32,7 +32,7 @@ export function Input({ label, prefix, error, hint, className, id, ...rest }: In
       )}
       <div
         className={cn(
-          "flex h-[52px] items-center gap-2 rounded-pill bg-surface px-5",
+          "flex h-[52px] items-center gap-2 rounded-field bg-surface px-5",
           "transition-[box-shadow] duration-[220ms] ease-out",
           error
             ? "shadow-[inset_0_0_0_1px_var(--error)]"
@@ -115,7 +115,7 @@ export function Capsule({
     <form onSubmit={submit} className={cn("w-full max-w-[540px]", className)} noValidate>
       <div
         className={cn(
-          "flex flex-col gap-2 rounded-[26px] bg-paper p-1.5 sm:flex-row sm:items-center sm:rounded-pill",
+          "flex flex-col gap-2 rounded-[var(--r-field-stack)] bg-paper p-1.5 sm:flex-row sm:items-center sm:rounded-field",
           "transition-[box-shadow] duration-[260ms] ease-out",
           invalid
             ? "shadow-[inset_0_0_0_1px_var(--error)]"

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from "react";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/cn";
 
@@ -30,7 +30,7 @@ const PAD_END: Record<ButtonSize, [string, string]> = {
 const CIRCLE: Record<ButtonSize, string> = { sm: "h-7 w-7", md: "h-8 w-8", lg: "h-10 w-10" };
 
 const VARIANT: Record<ButtonVariant, string> = {
-  primary: "bg-ink text-paper hover:bg-ink-2",
+  primary: "bg-[var(--btn-bg)] text-[var(--btn-fg)] hover:bg-[var(--btn-bg-hover)]",
   ink: "bg-ink text-paper hover:bg-ink-2",
   secondary: "bg-transparent text-ink shadow-[inset_0_0_0_1px_var(--line-strong)] hover:bg-sand",
   ghost: "bg-transparent text-ink hover:bg-sand",
@@ -42,14 +42,15 @@ const CIRCLE_VARIANT: Record<ButtonVariant, string> = {
   ghost: "bg-ink text-paper",
 };
 
-/** Warm-black pill. The arrow circle turns a quarter on hover; everything tweens. */
+/** Primary button. Version A: ink pill with an arrow circle that turns on hover. Version B: violet, 10px corners, no arrow. */
 export function Button({ variant = "primary", size = "md", arrow = false, href, loading = false, className, children, disabled, ...rest }: Props) {
+  const pad = { sm: "16px", md: "20px", lg: "24px" }[size];
   const classes = cn(
-    "group/btn relative inline-flex select-none items-center justify-center whitespace-nowrap rounded-pill font-medium",
+    "group/btn relative inline-flex select-none items-center justify-center whitespace-nowrap rounded-btn font-medium",
     "transition-[background-color,color,box-shadow,transform] duration-[240ms] ease-out active:scale-[0.97]",
     "disabled:pointer-events-none disabled:opacity-50",
     SIZE[size],
-    arrow ? PAD_END[size][0] : PAD_END[size][1],
+    arrow ? cn(PAD_END[size][0], "btn-has-arrow") : PAD_END[size][1],
     VARIANT[variant],
     className,
   );
@@ -60,7 +61,7 @@ export function Button({ variant = "primary", size = "md", arrow = false, href, 
         <span
           aria-hidden="true"
           className={cn(
-            "inline-flex shrink-0 items-center justify-center rounded-pill transition-transform duration-[480ms] ease-[var(--ease-out-expo)] group-hover/btn:rotate-45",
+            "btn-arrow inline-flex shrink-0 items-center justify-center rounded-pill transition-transform duration-[480ms] ease-[var(--ease-out-expo)] group-hover/btn:rotate-45",
             CIRCLE[size],
             CIRCLE_VARIANT[variant],
             loading && "opacity-0",
@@ -76,10 +77,11 @@ export function Button({ variant = "primary", size = "md", arrow = false, href, 
       )}
     </>
   );
-  if (href?.startsWith("#")) return <a href={href} className={classes}>{content}</a>;
-  if (href) return <Link href={href} className={classes}>{content}</Link>;
+  const style = { "--btn-pad": pad } as CSSProperties;
+  if (href?.startsWith("#")) return <a href={href} className={classes} style={style}>{content}</a>;
+  if (href) return <Link href={href} className={classes} style={style}>{content}</Link>;
   return (
-    <button type="button" className={classes} disabled={disabled || loading} aria-busy={loading || undefined} {...rest}>
+    <button type="button" className={classes} style={style} disabled={disabled || loading} aria-busy={loading || undefined} {...rest}>
       {content}
     </button>
   );

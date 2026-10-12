@@ -58,6 +58,22 @@
   --r-cell: clamp(14px, 2.4vw, 34px);
   --r-card: 26px;
   --r-pill: 999px;
+  /* Radius roles. Version B overrides these to the client's tighter corners. */
+  --r-btn: 999px;
+  --r-field: 999px;
+  --r-field-stack: 26px;
+  --r-panel: 30px;
+  --r-tile: 22px;
+  --r-inner: 16px;
+  --r-chip: 999px;
+
+  /* Role colours that differ between versions */
+  --btn-bg: var(--ink);
+  --btn-bg-hover: var(--ink-2);
+  --btn-fg: var(--paper);
+  --wash-from: #f1f0f9;
+  --wash-to: #dcd8ef;
+  --scrim: rgba(31, 28, 46, 0.45);
 
   --shadow-float: 0 2px 6px rgba(31, 28, 46, 0.08), 0 24px 48px -18px rgba(31, 28, 46, 0.35);
 
@@ -115,8 +131,12 @@
   --radius-cell: var(--r-cell);
   --radius-card: var(--r-card);
   --radius-pill: var(--r-pill);
-  --radius-btn: var(--r-pill);
-  --radius-field: var(--r-pill);
+  --radius-btn: var(--r-btn);
+  --radius-field: var(--r-field);
+  --radius-panel: var(--r-panel);
+  --radius-tile: var(--r-tile);
+  --radius-inner: var(--r-inner);
+  --radius-chip: var(--r-chip);
   --radius-frame: var(--r-card);
   --radius-sm: 12px;
   --radius-xs: 8px;
@@ -190,6 +210,55 @@
     color-scheme: dark;
   }
 }
+
+/* A soft highlight that travels along a line, left to right. Constant motion, so linear timing is right here. */
+.lead-shimmer { animation: lead-shimmer 2.4s linear infinite; }
+@keyframes lead-shimmer { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+
+/*
+  Version B: the client's original brand guide colours and corners, same layout.
+  Violet #8B5CF6 for actions, charcoal #111827 for words and dark blocks, white and grey surfaces.
+  Corners follow the guide: 10px buttons, 12px cards. Buttons drop the arrow.
+  Scoped with :has so overlays portaled outside the page wrapper are themed too.
+*/
+:root:has([data-variant="b"]) {
+  --cream: #f3f4f6;
+  --sand: #e5e7eb;
+  --sand-2: #d1d5db;
+  --paper: #ffffff;
+  --ink: #111827;
+  --ink-2: #1f2937;
+  --ink-soft: #374151;
+  --muted: #6b7280;
+  --faint: #9ca3af;
+  --plum: #111827;
+  --plum-deep: #1f2937;
+  --violet: #8b5cf6;
+  --violet-deep: #7c3aed;
+  --violet-soft: #ede9fe;
+  --line: rgba(17, 24, 39, 0.08);
+  --line-strong: rgba(17, 24, 39, 0.16);
+  --accent-ring: rgba(139, 92, 246, 0.22);
+  --nav-bg: rgba(243, 244, 246, 0.86);
+  --btn-bg: #8b5cf6;
+  --btn-bg-hover: #7c3aed;
+  --btn-fg: #ffffff;
+  --wash-from: #f9fafb;
+  --wash-to: #e5e7eb;
+  --scrim: rgba(17, 24, 39, 0.45);
+
+  --r-cell: clamp(8px, 1vw, 12px);
+  --r-card: 12px;
+  --r-btn: 10px;
+  --r-field: 12px;
+  --r-field-stack: 12px;
+  --r-panel: 14px;
+  --r-tile: 12px;
+  --r-inner: 8px;
+  --r-chip: 6px;
+}
+:root:has([data-variant="b"]) .btn-arrow { display: none; }
+:root:has([data-variant="b"]) .btn-has-arrow { padding-right: var(--btn-pad); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

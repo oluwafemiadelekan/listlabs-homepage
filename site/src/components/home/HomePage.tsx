@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ClaimProvider } from "@/components/claim/ClaimFlow";
 import { Close, TryIt } from "@/components/home/Closing";
 import { Features } from "@/components/home/Features";
@@ -14,8 +13,10 @@ export type Variant = "a" | "b";
 
 /** Review chrome only: flips between the two versions. Not part of the design. */
 function VersionSwitch({ variant }: { variant: Variant }) {
+  // A plain link, not next/link: a full page load always lands on the other version,
+  // even in a tab left open across a dev-server restart, and resets scroll and overlays.
   const item = (v: Variant, href: string, label: string) => (
-    <Link
+    <a
       href={href}
       aria-current={variant === v ? "page" : undefined}
       className={cn(
@@ -24,7 +25,7 @@ function VersionSwitch({ variant }: { variant: Variant }) {
       )}
     >
       {label}
-    </Link>
+    </a>
   );
   return (
     <nav aria-label="Design versions" className="fixed bottom-3 right-3 z-[80] flex items-center gap-0.5 rounded-field bg-paper p-1 shadow-float sm:bottom-4 sm:right-4">

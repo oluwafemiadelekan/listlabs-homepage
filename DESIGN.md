@@ -115,6 +115,7 @@ The same page ships in two versions for review. Layout, content and motion are i
 | Palette | Plum, lavender, muted violet on pale cool grey | The client's original guide: violet #8B5CF6, charcoal #111827, greys, white |
 | Primary button | Ink pill with a white arrow circle | Violet, 10px corners, no arrow |
 | Corners | Cards 26px, panels 30px, cells up to 34px, fields and chips are pills | Cards 12px, panels 14px, cells 8 to 12px, fields 12px, chips 6px |
+| Listing cards | Photo and details are two blocks, 4px apart | Photo and details join into one card |
 
 Version B is a token override in `site/src/app/globals.css` under `:root:has([data-variant="b"])`, so overlays
 are themed too. Components use radius roles (`rounded-card`, `rounded-panel`, `rounded-tile`, `rounded-inner`,
@@ -159,9 +160,9 @@ your listings, uses bento, features gallery, how it works, try it, close, footer
 
 ## Shapes
 
-- Photo strip: a 14-column grid, three rows. Rows 1 and 2 are three continuous photos cut into rounded squares and
-  wide rectangles. Row 3 is five separate products, each with a white chip holding its price and one fact, their edges
-  aligned with the photo columns above. Mobile: the middle photo over two products.
+- Photo strip: a 14-column grid, three rows. Three continuous photos, each one listing, cut into rounded squares and
+  wide rectangles. Each photo's bottom-left cell is wide and holds that listing's white card (price, title, place), so
+  the details read as part of the picture (the team's direction). Mobile: the middle photo alone with its card.
 - No image appears twice anywhere on the page. Credits live in `site/public/images/CREDITS.md`. The cut is drawn with a
   page-coloured ring around each cell, so the photo itself is never distorted.
 - Cards and tiles: 26px radius, 4px apart. Neighbouring tiles read as one cut-up shape.
@@ -189,6 +190,9 @@ your listings, uses bento, features gallery, how it works, try it, close, footer
   beside the steps on desktop. The "I'm listing" field opens it with the draft carried over. Escape closes it.
 - Feature tile: photo block standing in for the product clip, and a plain white block 4px below with the title and one line.
   No overlay, no fade.
+- Promote it adds, at the team's request: "If you invite your contacts and they invite their contacts, your listings
+  may go viral." Not yet in the client's copy draft.
+- "Instead of asking around" links to the saved-search blog post; it is not an audience, so it has no audience page.
 - Steps: the section note sits directly under the heading. Numbered rows; the active row's top and bottom lines
   thicken and carry a soft highlight that travels left to right, leading to the details. Step two spells out the
   five levels as rows: level on the left, who it reaches on the right. Step three's tile is a promote graphic.

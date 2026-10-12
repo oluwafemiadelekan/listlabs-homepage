@@ -258,6 +258,10 @@
   --r-chip: 6px;
 }
 :root:has([data-variant="b"]) .btn-arrow { display: none; }
+/* Version B: a listing card's photo and details join into one card. Version A keeps the 4px split. */
+:root:has([data-variant="b"]) .lc { gap: 0; }
+:root:has([data-variant="b"]) .lc-photo { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+:root:has([data-variant="b"]) .lc-body { border-top-left-radius: 0; border-top-right-radius: 0; }
 :root:has([data-variant="b"]) .btn-has-arrow { padding-right: var(--btn-pad); }
 
 @media (prefers-reduced-motion: reduce) {

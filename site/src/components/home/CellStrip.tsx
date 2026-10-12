@@ -6,32 +6,33 @@ import { cn } from "@/lib/cn";
 import { EASE_OUT_EXPO } from "@/lib/motion";
 
 export type Photo = { src: string; alt: string; position?: string };
-export type Product = Photo & { price: string; line: string };
+/** A photo that is a listing: its card sits on its own bottom-left cell. */
+export type Product = Photo & { price: string; title: string; place: string };
 /** A cell inside one photo's segment, in percent of that segment: x, y, width, height. */
 type Cell = [number, number, number, number];
 
 const GAP = 4;
 const T = 100 / 3;
+const R = 100 / 3;
 
 /*
-  The strip sits on a 14-column grid, three rows tall, so a square is 2 columns by 1 row and a
-  wide rectangle 4 by 1.
-  Rows 1 and 2: three continuous photos, each cut into rounded cells.
-    photo 1 (cols 1 to 4):   square, square / wide
-    photo 2 (cols 5 to 10):  wide, square / square, wide
-    photo 3 (cols 11 to 14): wide / square, square
-  Row 3: five separate products with a price and one fact, edges aligned to the photos above:
-    wide (1 to 4), square (5 to 6), wide (7 to 10), square (11 to 12), square (13 to 14).
-  Mobile: photo 2 alone over two products. The strip grows to fill the hero.
+  A 14-column grid, three rows tall: a square is 2 columns by 1 row, a wide rectangle 4 by 1.
+  Three continuous photos, each one listing, each cut into rounded cells:
+    photo 1 (cols 1 to 4):   wide / square, square / wide
+    photo 2 (cols 5 to 10):  wide, square / square, wide / wide, square
+    photo 3 (cols 11 to 14): square, square / square, square / wide
+  Every photo's bottom-left cell is wide, and the listing's white card sits in it, so the price
+  and details read as part of the picture. Mobile: photo 2 alone.
 */
 const LAYOUTS: Cell[][] = [
-  [[0, 0, 50, 50], [50, 0, 50, 50], [0, 50, 100, 50]],
-  [[0, 0, 2 * T, 50], [2 * T, 0, T, 50], [0, 50, T, 50], [T, 50, 2 * T, 50]],
-  [[0, 0, 100, 50], [0, 50, 50, 50], [50, 50, 50, 50]],
+  [[0, 0, 100, R], [0, R, 50, R], [50, R, 50, R], [0, 2 * R, 100, R]],
+  [[0, 0, 2 * T, R], [2 * T, 0, T, R], [0, R, T, R], [T, R, 2 * T, R], [0, 2 * R, 2 * T, R], [2 * T, 2 * R, T, R]],
+  [[0, 0, 50, R], [50, 0, 50, R], [0, R, 50, R], [50, R, 50, R], [0, 2 * R, 100, R]],
 ];
-const MOBILE_CELLS: Cell[] = [[0, 0, 100, 50], [0, 50, 50, 50], [50, 50, 50, 50]];
+/** Width of each photo's bottom-left cell, in percent of the photo, so the card never crosses a gap. */
+const CARD_CELL = [100, 2 * T, 100];
+const MOBILE_CELLS: Cell[] = [[0, 0, 100, R], [0, R, 50, R], [50, R, 50, R], [0, 2 * R, 100, R]];
 const SEGMENT_COLS = ["md:col-[1/5]", "col-[1/-1] md:col-[5/11]", "md:col-[11/15]"];
-const PRODUCT_COLS = ["col-[1/5] md:col-[1/5]", "col-[5/7] md:col-[5/7]", "md:col-[7/11]", "md:col-[11/13]", "md:col-[13/15]"];
 
 function Cuts({ cells, delay, className }: { cells: Cell[]; delay: number; className?: string }) {
   const reduced = useReducedMotion();
@@ -58,10 +59,10 @@ function Cuts({ cells, delay, className }: { cells: Cell[]; delay: number; class
   );
 }
 
-function Segment({ photo, cells, mobileCells, delay, priority, className }: { photo: Photo; cells: Cell[]; mobileCells?: Cell[]; delay: number; priority?: boolean; className?: string }) {
+function Segment({ photo, cells, mobileCells, cardCell, delay, priority, className }: { photo: Product; cells: Cell[]; mobileCells?: Cell[]; cardCell: number; delay: number; priority?: boolean; className?: string }) {
   const reduced = useReducedMotion();
   return (
-    <div className={cn("relative row-[1/3] overflow-hidden", className)}>
+    <div className={cn("relative row-[1/4] overflow-hidden", className)}>
       <motion.div
         className="absolute inset-0"
         initial={reduced ? false : { scale: 1.12 }}
@@ -78,32 +79,33 @@ function Segment({ photo, cells, mobileCells, delay, priority, className }: { ph
       ) : (
         <Cuts cells={cells} delay={delay} />
       )}
+      <ListingChip p={photo} delay={delay + 0.5} cardCell={cardCell} mobile={Boolean(mobileCells)} />
     </div>
   );
 }
 
-function ProductCell({ p, delay, className }: { p: Product; delay: number; className?: string }) {
+/** The listing's white card, inside the photo's bottom-left cell. */
+function ListingChip({ p, delay, cardCell, mobile }: { p: Product; delay: number; cardCell: number; mobile: boolean }) {
   const reduced = useReducedMotion();
   return (
-    <motion.figure
-      className={cn("relative row-[3/4] m-0 overflow-hidden rounded-cell bg-plum", className)}
-      initial={reduced ? false : { opacity: 0, y: 16 }}
+    <motion.figcaption
+      className={cn("absolute bottom-3 left-3 z-10 sm:bottom-4 sm:left-4", mobile ? "max-md:max-w-[calc(100%-24px)]" : undefined)}
+      style={{ maxWidth: `calc(${cardCell}% - 32px)` }}
+      initial={reduced ? false : { opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: EASE_OUT_EXPO, delay }}
+      transition={{ duration: 0.9, ease: EASE_OUT_EXPO, delay }}
     >
-      <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 30vw, 60vw" className="object-cover" style={{ objectPosition: p.position ?? "center" }} />
-      <figcaption className="absolute bottom-2 left-2 max-w-[calc(100%-16px)]">
-        <span className="block rounded-inner bg-paper px-3 py-2">
-          <span className="tnum block text-[15px] font-medium leading-tight tracking-[-0.02em] text-ink">{p.price}</span>
-          <span className="block truncate text-[12px] leading-tight text-muted">{p.line}</span>
-        </span>
-      </figcaption>
-    </motion.figure>
+      <span className="block rounded-inner bg-paper px-4 py-3 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.35)]">
+        <span className="tnum block text-[clamp(18px,1.4vw,22px)] font-medium leading-tight tracking-[-0.025em] text-ink">{p.price}</span>
+        <span className="mt-1 block truncate text-[13px] leading-tight text-ink">{p.title}</span>
+        <span className="mt-0.5 block truncate text-[12px] leading-tight text-muted">{p.place}</span>
+      </span>
+    </motion.figcaption>
   );
 }
 
-/** The hero strip: cut photos over a row of products. Grows to fill its parent. */
-export function CellStrip({ photos, products, className }: { photos: Photo[]; products: Product[]; className?: string }) {
+/** The hero strip: three listings, each a photo cut into cells with its card on it. Grows to fill its parent. */
+export function CellStrip({ photos, className }: { photos: Product[]; className?: string }) {
   return (
     <div
       className={cn(
@@ -117,13 +119,11 @@ export function CellStrip({ photos, products, className }: { photos: Photo[]; pr
           photo={p}
           cells={LAYOUTS[i]}
           mobileCells={i === 1 ? MOBILE_CELLS : undefined}
+          cardCell={CARD_CELL[i]}
           delay={0.15 + i * 0.12}
           priority={i === 1}
           className={cn(SEGMENT_COLS[i], i !== 1 && "hidden md:block")}
         />
-      ))}
-      {products.slice(0, 5).map((p, i) => (
-        <ProductCell key={p.src} p={p} delay={0.55 + i * 0.08} className={cn(PRODUCT_COLS[i], i > 1 && "hidden md:block")} />
       ))}
     </div>
   );

@@ -228,7 +228,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
   <div class="intro">
     <div>
       <h1>Brand guidelines.<br>The system as built.</h1>
-      <span class="version"><span class="mono">v4.1</span> · October 2026 · Supersedes the client guide for the homepage</span>
+      <span class="version"><span class="mono">v4.2</span> · October 2026 · Supersedes the client guide for the homepage</span>
     </div>
     <p>This guide documents the homepage exactly as it ships in <code>site/</code>. The client's original guide is kept for reference at <code>reference/client-brand-guidelines-original.html</code>. Where the two disagree on visuals, this one wins. Voice and copy rules still come from the client.</p>
   </div>
@@ -272,6 +272,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
           <tr><td>Cards and panels</td><td>26px and 30px</td><td>12px and 14px</td></tr>
           <tr><td>Photo cells</td><td>Up to 34px</td><td>8 to 12px</td></tr>
           <tr><td>Fields and chips</td><td>Pills</td><td>12px fields, 6px chips</td></tr>
+          <tr><td>Listing cards</td><td>Photo and details, 4px apart</td><td>Photo and details joined into one card</td></tr>
         </tbody>
       </table>
     </div>
@@ -516,7 +517,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
       </div>
     </div>
     <div class="tiles cols-3" style="margin-top:4px">
-      <div class="tile t-lav"><h4 style="font-weight:500">The grid</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">14 columns, 3 rows, filling the hero. Rows 1 and 2: three photos cut into squares and wide rectangles. Row 3: five products with price chips, aligned to the columns above. No image appears twice on the page.</p></div>
+      <div class="tile t-lav"><h4 style="font-weight:500">The grid</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">14 columns, 3 rows, filling the hero. Rows 1 and 2: three photos cut into squares and wide rectangles. Each photo is a listing; its white card (price, title, place) sits on its own bottom-left cell. No image appears twice on the page.</p></div>
       <div class="tile t-lav"><h4 style="font-weight:500">The cut</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Each photo stays one image. A page-coloured ring around each cell draws the gaps, so nothing is distorted.</p></div>
       <div class="tile t-lav"><h4 style="font-weight:500">Words go in blocks</h4><p style="font-size:13px;margin-top:6px;color:var(--ink-soft)">Text never sits on a photo and there are no fades. The words get their own white block 4px below. Stand-in photos are credited in <code>site/public/images/CREDITS.md</code>.</p></div>
     </div>
@@ -597,7 +598,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: 
 
 <footer>
   <div class="wrap">
-    <span>ListLabs brand guidelines v4.1. Working name; logo provisional.</span>
+    <span>ListLabs brand guidelines v4.2. Working name; logo provisional.</span>
     <span>Tokens: <code>site/src/app/globals.css</code> · Spec: <code>DESIGN.md</code></span>
   </div>
 </footer>

@@ -68,12 +68,24 @@ export function Uses({ base = "" }: { base?: string }) {
               </RevealItem>
             ))}
             <RevealItem className="flex">
-              <div className="flex w-full flex-col rounded-card bg-sand p-5 text-ink">
+              {/* Not an audience: this is the look side. It links to the post that explains saved searches. */}
+              <a
+                href={`${base}/blog/let-the-deal-find-you`}
+                className="group/use flex w-full flex-col rounded-card bg-sand p-5 text-ink transition-colors duration-[420ms] ease-out hover:bg-sand-2"
+              >
                 <h3 className="text-[18px] font-medium leading-[1.2] tracking-[-0.015em]">Instead of asking around</h3>
                 <p className="mt-2 text-[13px] leading-[1.45] text-ink-soft">
                   You don&apos;t list what you want. You set a saved search. It watches. You hear about it when it shows up in your world. That is the look side. Same product.
                 </p>
-              </div>
+                <span className="mt-auto inline-flex items-center gap-1 self-start pt-5 text-[13px] font-medium">
+                  How saved searches work
+                  <ArrowUpRight
+                    size={13}
+                    weight="bold"
+                    className="transition-transform duration-[420ms] ease-[var(--ease-out-expo)] group-hover/use:-translate-y-0.5 group-hover/use:translate-x-0.5"
+                  />
+                </span>
+              </a>
             </RevealItem>
           </div>
         </RevealGroup>

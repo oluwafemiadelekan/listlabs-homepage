@@ -152,7 +152,7 @@ function PromoteTile() {
         className="flex items-center gap-2 rounded-inner bg-violet px-3 py-2.5 text-[13px] text-paper"
       >
         <ShareNetwork size={14} weight="bold" className="shrink-0" />
-        Shared by 2 people you trust
+        Your contacts invite theirs
       </motion.div>
     </div>
   );
@@ -193,7 +193,13 @@ const STEPS: Step[] = [
   },
   {
     title: "Promote it",
-    body: () => "Drop the link on social, in email, at a meetup, anywhere you already talk. Or let someone you trust share it with their people.",
+    body: () => (
+      <>
+        Drop the link on social, in email, at a meetup, anywhere you already talk. Or let someone you trust share it with their people.
+        {/* Added at the team's request; not in the client's copy draft yet. */}
+        <span className="mt-2 block">If you invite your contacts and they invite their contacts, your listings may go viral.</span>
+      </>
+    ),
     media: <PromoteTile />,
     mediaHeight: "h-[236px]",
   },

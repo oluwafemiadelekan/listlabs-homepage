@@ -85,9 +85,9 @@ export function ListingCard({ l, onOpen }: { l: Example; onOpen: () => void }) {
       onClick={onOpen}
       aria-haspopup="dialog"
       aria-label={`${l.title}, ${l.price}. ${v.label}. Open details`}
-      className="group/card flex h-full w-full cursor-pointer flex-col gap-[4px] rounded-card text-left"
+      className="lc group/card flex h-full w-full cursor-pointer flex-col gap-[4px] rounded-card text-left"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-card bg-plum">
+      <div className="lc-photo relative aspect-[4/3] w-full overflow-hidden rounded-card bg-plum">
         <Image
           src={l.image}
           alt={l.alt}
@@ -106,7 +106,7 @@ export function ListingCard({ l, onOpen }: { l: Example; onOpen: () => void }) {
       </div>
       {/* Fixed rows: price, a two-line title, one-line location, stats, then the visibility footer.
           Every card shares the same rhythm, so the stats and footers line up across the row. */}
-      <div className="flex w-full flex-1 flex-col rounded-card bg-paper transition-colors duration-[300ms] ease-out group-hover/card:bg-white">
+      <div className="lc-body flex w-full flex-1 flex-col rounded-card bg-paper transition-colors duration-[300ms] ease-out group-hover/card:bg-white">
         <div className="flex flex-1 flex-col p-5">
           <div className="tnum text-[24px] font-medium leading-none tracking-[-0.03em]">{l.price}</div>
           <div className="mt-2 line-clamp-2 text-[14px] sm:min-h-[2lh] leading-[1.35] text-ink-soft">{l.title}</div>

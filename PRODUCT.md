@@ -43,7 +43,7 @@ Working name ListLabs with a provisional mark, both built to swap in one pass. I
 
 ## Evidence on Hand
 
-- `reference/brand-guidelines.html`: tokens, type specimens, voice, logo rules.
+- `reference/client-brand-guidelines-original.html`: tokens, type specimens, voice, logo rules.
 - `reference/index-concept-from-client.html`: the client's rough concept with the real copy for all three section orders.
 - `brief-distilled.md`: the brief.
 - Not on hand: product screenshots or clips (placeholders required, labelled), the homepage copy document, wireframes, messaging playbook, Storybook. No testimonials, customers or numbers exist to show; do not invent any.

@@ -8,7 +8,7 @@ that you list what you have and choose who sees it.
 
 1. Install the design skills if `.agents/` or the skills below are missing:
    `sh scripts/install-skills.sh` (or `scripts/install-skills.ps1` on Windows). `frontend-design` is already in `.claude/skills`.
-2. Read `brief-distilled.md`, `PRODUCT.md`, then `DESIGN.md`.
+2. Read `brief-distilled.md`, `PRODUCT.md`, `DESIGN.md`, then open `brand-guidelines.html` in a browser.
 3. Run the site: `cd site && npm install && npm run dev -- -p 5260`.
 
 ## Source files
@@ -16,7 +16,8 @@ that you list what you have and choose who sees it.
 - `brief-distilled.md`: the client brief, distilled, with open questions.
 - `PRODUCT.md`: product truth (what ListLabs is, who it is for, what is undecided).
 - `DESIGN.md`: the current design system. Tokens live in `site/src/app/globals.css`.
-- `reference/brand-guidelines.html`: the client's brand guide. Copy and brand rules come from here.
+- `brand-guidelines.html`: the brand guide as built (v3.2): colour, type, buttons, fields, tiles, imagery, motion, rules. Open it in a browser.
+- `reference/client-brand-guidelines-original.html`: the client's original guide, kept for voice and copy rules. Its visual rules are superseded.
 - `reference/index-concept-from-client.html`: the client's rough concept, with the real copy for all three page orders.
 - `reference/design-references.md`: the visual references the current design follows.
 
@@ -30,6 +31,12 @@ that you list what you have and choose who sees it.
 - The name and logo are provisional: `site/src/lib/brand.ts` and `site/src/components/brand/Logo.tsx` are the only places they live.
 - No em dashes. No "Turn your network into deals" H1. No "Not another marketplace" headline. Never call ListLabs "a page".
   No named example people. No compliance or AI features.
+
+## Keep the guides in sync
+
+Any change to colour, type, buttons, fields, tiles or motion updates three places in the same commit:
+`site/src/app/globals.css` (the tokens), `DESIGN.md` (the spec) and `brand-guidelines.html` (the visual guide,
+including its "What changed" table). A guide that describes an older design is a bug.
 
 ## Design rules (from Femi's reviews)
 

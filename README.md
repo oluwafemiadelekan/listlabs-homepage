@@ -22,7 +22,8 @@ Open http://localhost:5260.
 | `brief-distilled.md` | The client brief, distilled, with open questions. |
 | `PRODUCT.md` | Product truth: what ListLabs is, who it is for, what is still undecided. |
 | `DESIGN.md` | The current design system: palette, type, shapes, components, rules. |
-| `reference/` | The client's brand guidelines and rough concept, plus notes on the visual references. |
+| `brand-guidelines.html` | The brand guide as built: palette, type, buttons, fields, tiles, imagery, motion, do and don't. Open in a browser. |
+| `reference/` | The client's original brand guide and rough concept (archived), plus notes on the visual references. |
 | `.claude/skills/` | `frontend-design`, vendored under its Apache-2.0 licence. |
 | `skills.json`, `scripts/` | The other design skills, pinned to their sources, with install scripts. |
 

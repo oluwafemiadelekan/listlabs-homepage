@@ -40,7 +40,11 @@ and above all how the five visibility levels are shown visually. That one deserv
 ## Fixed
 See CLAUDE.md "Fixed by the client". Copy, brand, nav, footer, one account button, clip placeholders.
 
-## Brand in numbers
+## Brand in numbers (client's original, visuals superseded)
+
+These are the client guide's values. The design now uses the system in `brand-guidelines.html` and `DESIGN.md`.
+Voice, copy and the one-metric goal still apply.
+
 - Inter 900 hero (60px, lh 1.0, ls -1.5px), 700 H2 (36px), 700 H3 (20px), 600 eyebrow (12px uppercase
   +1.2px), 400 body (16px), caption 13px grey-500. JetBrains Mono for tokens only.
 - Violet #8B5CF6, hover #7C3AED, light #A78BFA. Ink #111827. Gray 700/500/300/100/50.
